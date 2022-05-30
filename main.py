@@ -6,7 +6,7 @@ sound_path = "sounds/beep.mp3"
 sound_path = os.path.normpath(sound_path)
 
 tabulka = """
-    | PÁTEK                         |                                |                                          |          | AGD1 |
+    | PÁTEK 30.5.                   |                                |                                          |          | AGD1 |
     | ----------------------------- | ------------------------------ | ---------------------------------------- | -------- | ---- |
     | KDY (vyplňuje WG)             | KDO                            | CO                                       | ČAS      | KDE  |
     | `12:00—13:00`                 |                                | příchod / společný oběd v ateliéru       |          |      |
@@ -20,7 +20,7 @@ tabulka = """
     | `18:00–18:20`                 |                                | `pauza`                                  | 20 min   |      |
     | `18:20–19:00`                 | @agd1/x                        | (klauzury?)                              | 40 min   |      |
     | `19:00-XX:00`                 | @agdx                          | afterka                                  | ?        |      |
-    | SOBOTA                        |                                |                                          |          | AGD1 |
+    | SOBOTA 31.5.                  |                                |                                          |          | AGD1 |
     | KDY (vyplňuje WG)             | KDO                            | CO                                       | ČAS      | KDE  |
     | `12:00-13:00`                 | @julie                         | příchod / společné vaření v ateliéru     | 60min    |      |
     | `13:``4``0–14:``2``0`         | @danielmstc                    | list.app project log                     | 40 min   |      |
@@ -35,6 +35,9 @@ tabulka = """
     | `1``8``:``0``0–1``8``:``4``0` | @katerina                      | organizing app (idea + discussion)       | 40 min   |      |
     | `1``8``:``4``0–1``9``:``0``0` | @agd1/x                        | (heslá na atelierové macy?)              | 20 min   |      |
     | `19:00-XX:00`                 | @agdx                          | afterka                                  | ?        |      |"""
+
+tabulka = tabulka.strip("`")
+print(tabulka)
 
 # datum vo formate DD-MM-YYYY
 date_string = "30-05-2022-"
