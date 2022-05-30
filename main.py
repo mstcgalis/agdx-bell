@@ -4,8 +4,9 @@ from playsound import playsound
 import datetime
 import json
 
-sound_path = "sounds/beep.mp3"
-sound_path = os.path.normpath(sound_path)
+sound_block_path = os.path.normpath("sounds/beep.mp3")
+sound_pause_start_path = os.path.normpath("sounds/ding.mp3")
+sound_pause_end_path = os.path.normpath("sounds/wood.mp3")
 
 def md2data(inp):
     lines = inp.split('\n')
@@ -76,24 +77,19 @@ for i, dict in enumerate(tabulka):
     harmonogram.append(item)
 
 for item in harmonogram:
-    print(item)
+    # update current_time
+    # check if start_time uz bol
+        # if yes
+            # skip to next interval
+            # beep
     
 
-# # datum vo formate DD-MM-YYYY
-# date_string = "30-05-2022-"
-# # cas v 24h formate, HH:MM
-# pauza_string = "13:04-14:20"
-
-#format = "%d-%m-%Y-%H:%M"
-# time1 = datetime.datetime.strptime(date_string+pauza_string, format)
-
-# beeped = False
-# while beeped == False:
-#     # get the current_time
-#     current_time = datetime.datetime.now()
-#     print(current_time)
-#     # check if time1 >= current_time
-#     if time1 <= current_time:
-#         # if yes, beep and break
-#         playsound(sound_path)
-#         beeped = True
+beeped = False
+while beeped == False:
+    # get the current_time
+    current_time = datetime.datetime.now()
+    # check if time1 >= current_time
+    if time1 <= current_time:
+        # if yes, beep and break
+        playsound(sound_path)
+        beeped = True
