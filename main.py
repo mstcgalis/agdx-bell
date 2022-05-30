@@ -28,6 +28,30 @@ def md2data(inp):
     return [day, date, ret]
     return json.dumps(ret, indent = 4)
 
+class interval:
+    def __init__(self, when, who, what, time, where, date):
+        year = "2022_"
+        format = "%Y_%d.%m.%H:%M"
+        start, end = when.split("-")
+        self.start_time = datetime.datetime.strptime(year+date+start, format)
+        self.end_time = datetime.datetime.strptime(year+date+end, format)
+        self.who = who
+        if what == "pauza" or what == "pause":
+            self.type = "pause"
+            self.title = "pause"
+        else:
+            self.type = "block"
+            self.title = what
+        self.duration = time
+        self.location = where
+
+    def __repr__(self):
+        return f"{self.start_time} {self.type} {self.title}"
+
+    def __str__(self):
+        return f"{self.start_time} {self.type} {self.title}"
+    
+
 tabulka = """| PÁTEK 30.5.                   |                                |                                          |          | AGD1 |
     | ----------------------------- | ------------------------------ | ---------------------------------------- | -------- | ----- |
     | WHEN                          | WHO                            | WHAT                                     | TIME     | WHERE |
@@ -41,19 +65,19 @@ tabulka = """| PÁTEK 30.5.                   |                                |
     | `16:20-18:00`                 | @Zuzana + #final-thesis people | Update k pracem, pojetí obhajob atp.     | 1h 40min |       |
     | `18:00-18:20`                 |                                | `pauza`                                  | 20 min   |       |
     | `18:20-19:00`                 | @agd1/x                        | (klauzury?)                              | 40 min   |       |
-    | `19:00-XX:00`                 | @agdx                          | afterka                                  | ?        |       |
+    | `19:00-00:00`                 | @agdx                          | afterka                                  | ?        |       |
    """
 
-day, date, harmonogram = md2data(tabulka.replace("`"," "))
+day, date, tabulka = md2data(tabulka.replace("`"," "))
 
-for dict in harmonogram:
-    interval_type = ""
-    start_time = dict["WHEN"].split("-")[0] # premenit na datetime
-    if dict["WHAT"] == "pauza" or dict["WHAT"] == "pause":
-        interval_type = "pause"
-    else:
-        interval_type = "block"
-    print(start_time, interval_type)
+harmonogram = []
+for i, dict in enumerate(tabulka):
+    item = interval(dict["WHEN"], dict["WHO"], dict["WHAT"], dict["TIME"], dict["WHERE"], date)
+    harmonogram.append(item)
+
+for item in harmonogram:
+    print(item)
+    
 
 # # datum vo formate DD-MM-YYYY
 # date_string = "30-05-2022-"
