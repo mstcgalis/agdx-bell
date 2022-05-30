@@ -45,6 +45,7 @@ class interval:
             self.title = what
         self.duration = time
         self.location = where
+        self.done = False
 
     def __repr__(self):
         return f"{self.start_time} {self.type} {self.title}"
@@ -64,9 +65,9 @@ tabulka = """| PÁTEK 30.5.                   |                                |
     | `15:20-16:00`                 | @ondrej                        | agdx-merch - diskuze(?)                  | 40 min   |       |
     | `16:00-16:20`                 |                                | `pauza`                                  | 20 min   |       |
     | `16:20-18:00`                 | @Zuzana + #final-thesis people | Update k pracem, pojetí obhajob atp.     | 1h 40min |       |
-    | `18:00-18:20`                 |                                | `pauza`                                  | 20 min   |       |
-    | `18:20-19:00`                 | @agd1/x                        | (klauzury?)                              | 40 min   |       |
-    | `19:00-00:00`                 | @agdx                          | afterka                                  | ?        |       |
+    | `19:17-18:20`                 |                                | `pauza`                                  | 20 min   |       |
+    | `19:18-19:00`                 | @agd1/x                        | (klauzury?)                              | 40 min   |       |
+    | `19:19-00:00`                 | @agdx                          | afterka                                  | ?        |       |
    """
 
 day, date, tabulka = md2data(tabulka.replace("`"," "))
@@ -76,20 +77,28 @@ for i, dict in enumerate(tabulka):
     item = interval(dict["WHEN"], dict["WHO"], dict["WHAT"], dict["TIME"], dict["WHERE"], date)
     harmonogram.append(item)
 
+bola_pauza = False
+current_time = datetime.datetime.now()
 for item in harmonogram:
-    # update current_time
-    # check if start_time uz bol
-        # if yes
-            # skip to next interval
-            # beep
-    
-
-beeped = False
-while beeped == False:
-    # get the current_time
-    current_time = datetime.datetime.now()
-    # check if time1 >= current_time
-    if time1 <= current_time:
-        # if yes, beep and break
-        playsound(sound_path)
-        beeped = True
+    print(item)
+    while not item.done:
+        current_time = datetime.datetime.now()
+        # if start_time uz bol, ale nie davnejseie ako 1 minutu dozadz, tak zvon
+        if item.start_time <= current_time < item.start_time + datetime.timedelta(minutes=1):
+            if item.type == "pause":
+                bola_pauza = True
+                playsound(sound_pause_start_path)
+                print("pause_start")
+                item.done = True
+            elif bola_pauza == True:
+                bola_pauza = False
+                playsound(sound_pause_end_path)
+                print("pause_end")
+                item.done = True
+            else :
+                playsound(sound_block_path)
+                print("block")
+                item.done = True
+        # ak start_time uz bol, davnejsie ako 1 minutut dozadu, tak proste done
+        elif item.start_time < current_time:
+            item.done = True
