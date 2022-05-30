@@ -28,7 +28,7 @@ def md2data(inp):
     return [day, date, ret]
     return json.dumps(ret, indent = 4)
 
-harmonogram = """| PÁTEK 30.5.                   |                                |                                          |          | AGD1 |
+tabulka = """| PÁTEK 30.5.                   |                                |                                          |          | AGD1 |
     | ----------------------------- | ------------------------------ | ---------------------------------------- | -------- | ----- |
     | WHEN                          | WHO                            | WHAT                                     | TIME     | WHERE |
     | `12:00-13:00`                 |                                | příchod / společný oběd v ateliéru       |          |       |
@@ -44,7 +44,7 @@ harmonogram = """| PÁTEK 30.5.                   |                             
     | `19:00-XX:00`                 | @agdx                          | afterka                                  | ?        |       |
    """
 
-day, date, harmonogram = md2data(harmonogram.replace("`"," "))
+day, date, harmonogram = md2data(tabulka.replace("`"," "))
 
 for dict in harmonogram:
     interval_type = ""
