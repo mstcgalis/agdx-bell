@@ -1,4 +1,5 @@
 import os
+from tracemalloc import start
 from playsound import playsound
 import datetime
 import json
@@ -30,14 +31,14 @@ def md2data(inp):
 harmonogram = """| PÁTEK 30.5.                   |                                |                                          |          | AGD1 |
     | ----------------------------- | ------------------------------ | ---------------------------------------- | -------- | ----- |
     | WHEN                          | WHO                            | WHAT                                     | TIME     | WHERE |
-    | `12:00—13:00`                 |                                | příchod / společný oběd v ateliéru       |          |       |
+    | `12:00-13:00`                 |                                | příchod / společný oběd v ateliéru       |          |       |
     | `13:00-13:40`                 | @Zuzana                        | update pracovní skupina “favu-hodnocení” | 40 min   |       |
     | `13:40-14:20`                 | @JakubS                        | project-log                              | 40 min   |       |
     | `14:20-14:40`                 |                                | `pauza`                                  | 20 min   |       |
     | `14:40-15:20`                 | @xvburak+                      | agdx-sustredko                           | 40 min   |       |
     | `15:20-16:00`                 | @ondrej                        | agdx-merch - diskuze(?)                  | 40 min   |       |
     | `16:00-16:20`                 |                                | `pauza`                                  | 20 min   |       |
-    | `16.20-18:00`                 | @Zuzana + #final-thesis people | Update k pracem, pojetí obhajob atp.     | 1h 40min |       |
+    | `16:20-18:00`                 | @Zuzana + #final-thesis people | Update k pracem, pojetí obhajob atp.     | 1h 40min |       |
     | `18:00-18:20`                 |                                | `pauza`                                  | 20 min   |       |
     | `18:20-19:00`                 | @agd1/x                        | (klauzury?)                              | 40 min   |       |
     | `19:00-XX:00`                 | @agdx                          | afterka                                  | ?        |       |
@@ -45,6 +46,14 @@ harmonogram = """| PÁTEK 30.5.                   |                             
 
 day, date, harmonogram = md2data(harmonogram.replace("`"," "))
 
+for dict in harmonogram:
+    interval_type = ""
+    start_time = dict["WHEN"].split("-")[0] # premenit na datetime
+    if dict["WHAT"] == "pauza" or dict["WHAT"] == "pause":
+        interval_type = "pause"
+    else:
+        interval_type = "block"
+    print(start_time, interval_type)
 
 # # datum vo formate DD-MM-YYYY
 # date_string = "30-05-2022-"
