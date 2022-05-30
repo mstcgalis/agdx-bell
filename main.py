@@ -19,19 +19,19 @@ def md2json(inp):
     return json.dumps(ret, indent = 4) 
 
 tabulka = """| PÁTEK 30.5.                   |                                |                                          |          | AGD1 |
-    | ----------------------------- | ------------------------------ | ---------------------------------------- | -------- | ---- |
-    | KDY (vyplňuje WG)             | KDO                            | CO                                       | ČAS      | KDE  |
-    | `12:00—13:00`                 |                                | příchod / společný oběd v ateliéru       |          |      |
-    | `13:00-13:40`                 | @Zuzana                        | update pracovní skupina “favu-hodnocení” | 40 min   |      |
-    | `13:40-14:20`                 | @JakubS                        | project-log                              | 40 min   |      |
-    | `14:20-14:40`                 |                                | `pauza`                                  | 20 min   |      |
-    | `14:40-15:20`                 | @xvburak+                      | agdx-sustredko                           | 40 min   |      |
-    | `15:20-16:00`                 | @ondrej                        | agdx-merch - diskuze(?)                  | 40 min   |      |
-    | `16:00-16:20`                 |                                | `pauza`                                  | 20 min   |      |
-    | `16.20-18:00`                 | @Zuzana + #final-thesis people | Update k pracem, pojetí obhajob atp.     | 1h 40min |      |
-    | `18:00-18:20`                 |                                | `pauza`                                  | 20 min   |      |
-    | `18:20-19:00`                 | @agd1/x                        | (klauzury?)                              | 40 min   |      |
-    | `19:00-XX:00`                 | @agdx                          | afterka                                  | ?        |      |
+    | ----------------------------- | ------------------------------ | ---------------------------------------- | -------- | ----- |
+    | WHEN                          | WHO                            | WHAT                                     | TIME     | WHERE |
+    | `12:00—13:00`                 |                                | příchod / společný oběd v ateliéru       |          |       |
+    | `13:00-13:40`                 | @Zuzana                        | update pracovní skupina “favu-hodnocení” | 40 min   |       |
+    | `13:40-14:20`                 | @JakubS                        | project-log                              | 40 min   |       |
+    | `14:20-14:40`                 |                                | `pauza`                                  | 20 min   |       |
+    | `14:40-15:20`                 | @xvburak+                      | agdx-sustredko                           | 40 min   |       |
+    | `15:20-16:00`                 | @ondrej                        | agdx-merch - diskuze(?)                  | 40 min   |       |
+    | `16:00-16:20`                 |                                | `pauza`                                  | 20 min   |       |
+    | `16.20-18:00`                 | @Zuzana + #final-thesis people | Update k pracem, pojetí obhajob atp.     | 1h 40min |       |
+    | `18:00-18:20`                 |                                | `pauza`                                  | 20 min   |       |
+    | `18:20-19:00`                 | @agd1/x                        | (klauzury?)                              | 40 min   |       |
+    | `19:00-XX:00`                 | @agdx                          | afterka                                  | ?        |       |
    """
 
 tabulka = tabulka.replace("`"," ")
