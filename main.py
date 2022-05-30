@@ -6,19 +6,28 @@ import json
 sound_path = "sounds/beep.mp3"
 sound_path = os.path.normpath(sound_path)
 
-def md2json(inp):
+def md2data(inp):
     lines = inp.split('\n')
     ret=[]
     keys=[]
+    day=""
+    date=""
     for i,line in enumerate(lines):
         line = line.strip(" ")
-        if i==2:
+        if i == 0:
+            # from the first line in the table, get the day and dat by spliting at space
+            day, date = line.split('|')[1].strip().split(" ")
+        elif i == 2:
             keys=[_i.strip() for _i in line.split('|')]
         else:
             ret.append({keys[_i]:v.strip() for _i,v in enumerate(line.split('|')) if  _i>0 and _i<len(keys)-1})
-    return json.dumps(ret, indent = 4) 
+        for dict in ret:
+            if not dict:
+                ret.remove(dict)
+    return [day, date, ret]
+    return json.dumps(ret, indent = 4)
 
-tabulka = """| PÁTEK 30.5.                   |                                |                                          |          | AGD1 |
+harmonogram = """| PÁTEK 30.5.                   |                                |                                          |          | AGD1 |
     | ----------------------------- | ------------------------------ | ---------------------------------------- | -------- | ----- |
     | WHEN                          | WHO                            | WHAT                                     | TIME     | WHERE |
     | `12:00—13:00`                 |                                | příchod / společný oběd v ateliéru       |          |       |
@@ -34,9 +43,7 @@ tabulka = """| PÁTEK 30.5.                   |                                |
     | `19:00-XX:00`                 | @agdx                          | afterka                                  | ?        |       |
    """
 
-tabulka = tabulka.replace("`"," ")
-tabulka = md2json(tabulka)
-print(tabulka)
+day, date, harmonogram = md2data(harmonogram.replace("`"," "))
 
 
 # # datum vo formate DD-MM-YYYY
