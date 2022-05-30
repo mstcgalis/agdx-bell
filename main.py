@@ -39,23 +39,21 @@ tabulka = """
 tabulka = tabulka.strip("`")
 print(tabulka)
 
-# datum vo formate DD-MM-YYYY
-date_string = "30-05-2022-"
-# cas v 24h formate, HH:MM
-pauza_string = "13:04-14:20"
+# # datum vo formate DD-MM-YYYY
+# date_string = "30-05-2022-"
+# # cas v 24h formate, HH:MM
+# pauza_string = "13:04-14:20"
 
+#format = "%d-%m-%Y-%H:%M"
+# time1 = datetime.datetime.strptime(date_string+pauza_string, format)
 
-format = "%d-%m-%Y-%H:%M"
-
-time1 = datetime.datetime.strptime(date_string+pauza_string, format)
-
-beeped = False
-while beeped == False:
-    # get the current_time
-    current_time = datetime.datetime.now()
-    print(current_time)
-    # check if time1 >= current_time
-    if time1 <= current_time:
-        # if yes, beep and break
-        playsound(sound_path)
-        beeped = True
+# beeped = False
+# while beeped == False:
+#     # get the current_time
+#     current_time = datetime.datetime.now()
+#     print(current_time)
+#     # check if time1 >= current_time
+#     if time1 <= current_time:
+#         # if yes, beep and break
+#         playsound(sound_path)
+#         beeped = True
