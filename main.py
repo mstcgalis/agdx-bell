@@ -1,7 +1,6 @@
 ####
 # TODO:harmonogram is saved to a json, so the app can be quit safely
 #       it is also saved after every delay
-
 ####
 
 import os
@@ -20,12 +19,15 @@ harmonogram_path = "data/harmonogram.json"
 
 ## INTERVAL class
 class interval:
-    def __init__(self, when, who, what, time, where, date):
+    def __init__(self, date, when, who="", what="", time="", where=""):
         year = "2022_"
         format = "%Y_%d.%m.%H:%M"
-        start, end = when.split("-")
-        self.start_time = datetime.datetime.strptime(year+date+start, format)
-        self.end_time = datetime.datetime.strptime(year+date+end, format)
+        
+        self.start_time = datetime.datetime.strptime(year+date+when.split("-")[0], format)
+        try:
+            self.end_time = datetime.datetime.strptime(year+date+when.split("-")[1], format)
+        except:
+             self.end_time = ""
         self.who = who
         if what == "pauza" or what == "pause":
             self.type = "pause"
@@ -43,11 +45,11 @@ class interval:
     def __str__(self):
         return f"{self.start_time} {self.type} {self.title}"
 
-## CONVERSION to harmonogram
+## CONVERSION from markdown to harmonogram
 def md2harmonogram(inp):
     inp = inp.replace("`"," ")
     lines = inp.split('\n')
-    ret=[]
+    list=[]
     keys=[]
     day=""
     date=""
@@ -59,15 +61,14 @@ def md2harmonogram(inp):
             # from the first line in the table, get the day and dat by spliting at space
             day, date = line.split('|')[1].strip().split(" ")
         elif i == 2:
+            # the third line holds keys
             keys=[_i.strip() for _i in line.split('|')]
         else:
-            ret.append({keys[_i]:v.strip() for _i,v in enumerate(line.split('|')) if  _i>0 and _i<len(keys)-1})
-        for dict in ret:
-            if not dict:
-                ret.remove(dict)
-
-    for i, dict in enumerate(ret):
-        item = interval(dict["WHEN"], dict["WHO"], dict["WHAT"], dict["TIME"], dict["WHERE"], date)
+            dict = ({keys[_i]:v.strip() for _i,v in enumerate(line.split('|')) if  _i>0 and _i<len(keys)-1})
+            if dict:
+                list.append(dict)
+    for dict in list:
+        item = interval(date, dict.get("WHEN",""), dict.get("WHO",""), dict.get("WHAT",""), dict.get("TIME",""), dict.get("WHERE",""))
         harmonogram.append(item)
     return harmonogram
 
@@ -79,21 +80,26 @@ def add_delay(harmonogram, minutes):
             item.end_time + datetime.timedelta(minutes=minutes)
 
 
-tabulka = """| PÁTEK 30.5.                   |                                |                                          |          | AGD1 |
-    | ----------------------------- | ------------------------------ | ---------------------------------------- | -------- | ----- |
-    | WHEN                          | WHO                            | WHAT                                     | TIME     | WHERE |
-    | `12:00-13:00`                 |                                | příchod / společný oběd v ateliéru       |          |       |
-    | `13:00-13:40`                 | @Zuzana                        | update pracovní skupina “favu-hodnocení” | 40 min   |       |
-    | `13:40-14:20`                 | @JakubS                        | project-log                              | 40 min   |       |
-    | `14:20-14:40`                 |                                | `pauza`                                  | 20 min   |       |
-    | `14:40-15:20`                 | @xvburak+                      | agdx-sustredko                           | 40 min   |       |
-    | `15:20-16:00`                 | @ondrej                        | agdx-merch - diskuze(?)                  | 40 min   |       |
-    | `16:00-16:20`                 |                                | `pauza`                                  | 20 min   |       |
-    | `16:20-18:00`                 | @Zuzana + #final-thesis people | Update k pracem, pojetí obhajob atp.     | 1h 40min |       |
-    | `19:17-18:20`                 |                                | `pauza`                                  | 20 min   |       |
-    | `19:18-19:00`                 | @agd1/x                        | (klauzury?)                              | 40 min   |       |
-    | `19:19-23:59`                 | @agdx                          | afterka                                  | ?        |       |
-   """
+tabulka = """| ŠTVRTOK 2.6. |                      |                                                 |
+| ------------ | -------------------- | ----------------------------------------------- |
+| WHEN         | WHO                  | WHAT                                            |
+| 10:00        | @everyone            | příchod                                         |
+| 10:15        | @Zuzana              | úvod                                            |
+| 10:30        | @danielmstc @hellboi | #agdx-irl (agdx-report)                         |
+| 11:00        | @honza_suchy         | Untitled menu app (agdx-project)                |
+| 11:30        | @everyone            | pauza (10min)                                   |
+| 11:40        | @petr                | KAM (agdx-project)                              |
+| 12:10        | @julie               | podcast (agdx-project)                          |
+| 12:40        | @everyone            | obed (60min)                                    |
+| 13:40        | @v.adela             | metodika psaní, myšlenky o textu (agdx-project) |
+| 14:10        | @Ondřej              | typo report, in progress type (agdx-project)    |
+| 14:40        | @everyone            | pauza (10min)                                   |
+| 14:50        | @JakubS              | web Duholeum - generátor                        |
+| 15:20        | @FlyingMochi         | VR podcast                                      |
+| 15:50        | @everyone            | pauza (10min)                                   |
+| 16:00        | @everyone            | diskuse o sebahodnocení                         |
+
+"""
 
 harmonogram = md2harmonogram(tabulka)
 save_harmonogram(harmonogram, harmonogram_path)
