@@ -91,7 +91,7 @@
     },
     {
         "start_time": "2022-05-31 18:10:00",
-        "end_time": "2022-05-31 18:15:00",
+        "end_time": "2022-05-31 18:20:00",
         "duration": "",
         "type": "block",
         "who": "@Ond\u0159ej",
@@ -100,8 +100,8 @@
         "done": false
     },
     {
-        "start_time": "2022-05-31 18:15:00",
-        "end_time": "2022-05-31 18:30:00",
+        "start_time": "2022-05-31 18:20:00",
+        "end_time": "2022-05-31 18:21:00",
         "duration": "",
         "type": "pause",
         "who": "@everyone",
@@ -110,8 +110,8 @@
         "done": false
     },
     {
-        "start_time": "2022-05-31 18:30:00",
-        "end_time": "2022-05-31 18:40:00",
+        "start_time": "2022-05-31 18:21:00",
+        "end_time": "2022-05-31 18:22:00",
         "duration": "",
         "type": "block",
         "who": "@JakubS",
@@ -120,8 +120,8 @@
         "done": false
     },
     {
-        "start_time": "2022-05-31 18:40:00",
-        "end_time": "2022-05-31 18:50:00",
+        "start_time": "2022-05-31 18:22:00",
+        "end_time": "2022-05-31 18:23:00",
         "duration": "",
         "type": "block",
         "who": "@FlyingMochi",
@@ -130,7 +130,7 @@
         "done": false
     },
     {
-        "start_time": "2022-05-31 18:50:00",
+        "start_time": "2022-05-31 18:23:00",
         "end_time": "2022-05-31 19:00:00",
         "duration": "",
         "type": "pause",

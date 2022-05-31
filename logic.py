@@ -84,10 +84,10 @@ class interval:
         self.done = False
 
     def __repr__(self):
-        return f"{self.start_time} {self.type} {self.title}"
+        return f"{self.start_time}-{self.end_time}, {self.type}, {self.who}, {self.title}"
 
     def __str__(self):
-        return f"{self.start_time} {self.type} {self.title}"
+        return f"{self.start_time}-{self.end_time}, {self.type}, {self.who}, {self.title}"
 
 ## TIMER class
 class timer:
@@ -116,6 +116,7 @@ class timer:
                 # ak start_time uz bol, davnejsie ako 1 minutu dozadu, tak je uz item done
                 elif item.start_time < current_time:
                     item.done = True
+        return False
 
     def delay(self, minutes):
         self.harmonogram = add_delay(self.harmonogram, minutes)
@@ -151,31 +152,3 @@ def add_delay(harmonogram, minutes):
             except:
                 pass
     return harmonogram
-
-
-tabulka = """| ŠTVRTOK 31.5. |                      |                                                 |
-| ------------ | -------------------- | ----------------------------------------------- |
-| WHEN         | WHO                  | WHAT                                            |
-| 17:40        | @everyone            | příchod                                         |
-| 17:41        | @Zuzana              | úvod                                            |
-| 17:42        | @danielmstc @hellboi | #agdx-irl (agdx-report)                         |
-| 17:43        | @honza_suchy         | Untitled menu app (agdx-project)                |
-| 17:44        | @everyone            | pauza (10min)                                   |
-| 17:47        | @petr                | KAM (agdx-project)                              |
-| 17:50        | @julie               | podcast (agdx-project)                          |
-| 17:55        | @everyone            | obed (60min)                                    |
-| 18:00        | @v.adela             | metodika psaní, myšlenky o textu (agdx-project) |
-| 18:10        | @Ondřej              | typo report, in progress type (agdx-project)    |
-| 18:15        | @everyone            | pauza (10min)                                   |
-| 18:30        | @JakubS              | web Duholeum - generátor                        |
-| 18:40        | @FlyingMochi         | VR podcast                                      |
-| 18:50        | @everyone            | pauza (10min)                                   |
-| 19:00        | @everyone            | diskuse o sebahodnocení                         |
-
-"""
-# harmonogram = md2harmonogram(tabulka)
-# save_harmonogram(harmonogram, harmonogram_path)
-# harmonogram = load_harmonogram(harmonogram_path)
-
-# bell = timer(harmonogram)
-# bell.arm()
