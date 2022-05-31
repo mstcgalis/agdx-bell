@@ -1,0 +1,112 @@
+[
+    {
+        "done": false,
+        "duration": "",
+        "end_time": "2022-05-30 13:00:00",
+        "location": "",
+        "start_time": "2022-05-30 12:00:00",
+        "title": "p\u0159\u00edchod / spole\u010dn\u00fd ob\u011bd v ateli\u00e9ru",
+        "type": "block",
+        "who": ""
+    },
+    {
+        "done": false,
+        "duration": "40 min",
+        "end_time": "2022-05-30 13:40:00",
+        "location": "",
+        "start_time": "2022-05-30 13:00:00",
+        "title": "update pracovn\u00ed skupina \u201cfavu-hodnocen\u00ed\u201d",
+        "type": "block",
+        "who": "@Zuzana"
+    },
+    {
+        "done": false,
+        "duration": "40 min",
+        "end_time": "2022-05-30 14:20:00",
+        "location": "",
+        "start_time": "2022-05-30 13:40:00",
+        "title": "project-log",
+        "type": "block",
+        "who": "@JakubS"
+    },
+    {
+        "done": false,
+        "duration": "20 min",
+        "end_time": "2022-05-30 14:40:00",
+        "location": "",
+        "start_time": "2022-05-30 14:20:00",
+        "title": "pause",
+        "type": "pause",
+        "who": ""
+    },
+    {
+        "done": false,
+        "duration": "40 min",
+        "end_time": "2022-05-30 15:20:00",
+        "location": "",
+        "start_time": "2022-05-30 14:40:00",
+        "title": "agdx-sustredko",
+        "type": "block",
+        "who": "@xvburak+"
+    },
+    {
+        "done": false,
+        "duration": "40 min",
+        "end_time": "2022-05-30 16:00:00",
+        "location": "",
+        "start_time": "2022-05-30 15:20:00",
+        "title": "agdx-merch - diskuze(?)",
+        "type": "block",
+        "who": "@ondrej"
+    },
+    {
+        "done": false,
+        "duration": "20 min",
+        "end_time": "2022-05-30 16:20:00",
+        "location": "",
+        "start_time": "2022-05-30 16:00:00",
+        "title": "pause",
+        "type": "pause",
+        "who": ""
+    },
+    {
+        "done": false,
+        "duration": "1h 40min",
+        "end_time": "2022-05-30 18:00:00",
+        "location": "",
+        "start_time": "2022-05-30 16:20:00",
+        "title": "Update k pracem, pojet\u00ed obhajob atp.",
+        "type": "block",
+        "who": "@Zuzana + #final-thesis people"
+    },
+    {
+        "done": false,
+        "duration": "20 min",
+        "end_time": "2022-05-30 18:20:00",
+        "location": "",
+        "start_time": "2022-05-30 19:17:00",
+        "title": "pause",
+        "type": "pause",
+        "who": ""
+    },
+    {
+        "done": false,
+        "duration": "40 min",
+        "end_time": "2022-05-30 19:00:00",
+        "location": "",
+        "start_time": "2022-05-30 19:18:00",
+        "title": "(klauzury?)",
+        "type": "block",
+        "who": "@agd1/x"
+    },
+    {
+        "done": false,
+        "duration": "?",
+        "end_time": "2022-05-30 23:59:00",
+        "location": "",
+        "start_time": "2022-05-30 19:19:00",
+        "title": "afterka",
+        "type": "block",
+        "who": "@agdx"
+    }
+]
