@@ -1,112 +1,152 @@
 [
     {
-        "done": false,
+        "start_time": "2022-06-02 10:00:00",
+        "end_time": "",
         "duration": "",
-        "end_time": "2022-05-30 13:00:00",
-        "location": "",
-        "start_time": "2022-05-30 12:00:00",
-        "title": "p\u0159\u00edchod / spole\u010dn\u00fd ob\u011bd v ateli\u00e9ru",
+        "who": "@everyone",
         "type": "block",
-        "who": ""
+        "title": "p\u0159\u00edchod",
+        "location": "",
+        "done": false
     },
     {
-        "done": false,
-        "duration": "40 min",
-        "end_time": "2022-05-30 13:40:00",
-        "location": "",
-        "start_time": "2022-05-30 13:00:00",
-        "title": "update pracovn\u00ed skupina \u201cfavu-hodnocen\u00ed\u201d",
+        "start_time": "2022-06-02 10:15:00",
+        "end_time": "",
+        "duration": "",
+        "who": "@Zuzana",
         "type": "block",
-        "who": "@Zuzana"
+        "title": "\u00favod",
+        "location": "",
+        "done": false
     },
     {
-        "done": false,
-        "duration": "40 min",
-        "end_time": "2022-05-30 14:20:00",
-        "location": "",
-        "start_time": "2022-05-30 13:40:00",
-        "title": "project-log",
+        "start_time": "2022-06-02 10:30:00",
+        "end_time": "",
+        "duration": "",
+        "who": "@danielmstc @hellboi",
         "type": "block",
-        "who": "@JakubS"
+        "title": "#agdx-irl (agdx-report)",
+        "location": "",
+        "done": false
     },
     {
-        "done": false,
-        "duration": "20 min",
-        "end_time": "2022-05-30 14:40:00",
-        "location": "",
-        "start_time": "2022-05-30 14:20:00",
-        "title": "pause",
-        "type": "pause",
-        "who": ""
-    },
-    {
-        "done": false,
-        "duration": "40 min",
-        "end_time": "2022-05-30 15:20:00",
-        "location": "",
-        "start_time": "2022-05-30 14:40:00",
-        "title": "agdx-sustredko",
+        "start_time": "2022-06-02 11:00:00",
+        "end_time": "",
+        "duration": "",
+        "who": "@honza_suchy",
         "type": "block",
-        "who": "@xvburak+"
+        "title": "Untitled menu app (agdx-project)",
+        "location": "",
+        "done": false
     },
     {
-        "done": false,
-        "duration": "40 min",
-        "end_time": "2022-05-30 16:00:00",
-        "location": "",
-        "start_time": "2022-05-30 15:20:00",
-        "title": "agdx-merch - diskuze(?)",
+        "start_time": "2022-06-02 11:30:00",
+        "end_time": "",
+        "duration": "",
+        "who": "@everyone",
         "type": "block",
-        "who": "@ondrej"
+        "title": "pauza (10min)",
+        "location": "",
+        "done": false
     },
     {
-        "done": false,
-        "duration": "20 min",
-        "end_time": "2022-05-30 16:20:00",
-        "location": "",
-        "start_time": "2022-05-30 16:00:00",
-        "title": "pause",
-        "type": "pause",
-        "who": ""
-    },
-    {
-        "done": false,
-        "duration": "1h 40min",
-        "end_time": "2022-05-30 18:00:00",
-        "location": "",
-        "start_time": "2022-05-30 16:20:00",
-        "title": "Update k pracem, pojet\u00ed obhajob atp.",
+        "start_time": "2022-06-02 11:40:00",
+        "end_time": "",
+        "duration": "",
+        "who": "@petr",
         "type": "block",
-        "who": "@Zuzana + #final-thesis people"
+        "title": "KAM (agdx-project)",
+        "location": "",
+        "done": false
     },
     {
-        "done": false,
-        "duration": "20 min",
-        "end_time": "2022-05-30 18:20:00",
-        "location": "",
-        "start_time": "2022-05-30 19:17:00",
-        "title": "pause",
-        "type": "pause",
-        "who": ""
-    },
-    {
-        "done": false,
-        "duration": "40 min",
-        "end_time": "2022-05-30 19:00:00",
-        "location": "",
-        "start_time": "2022-05-30 19:18:00",
-        "title": "(klauzury?)",
+        "start_time": "2022-06-02 12:10:00",
+        "end_time": "",
+        "duration": "",
+        "who": "@julie",
         "type": "block",
-        "who": "@agd1/x"
+        "title": "podcast (agdx-project)",
+        "location": "",
+        "done": false
     },
     {
-        "done": false,
-        "duration": "?",
-        "end_time": "2022-05-30 23:59:00",
-        "location": "",
-        "start_time": "2022-05-30 19:19:00",
-        "title": "afterka",
+        "start_time": "2022-06-02 12:40:00",
+        "end_time": "",
+        "duration": "",
+        "who": "@everyone",
         "type": "block",
-        "who": "@agdx"
+        "title": "obed (60min)",
+        "location": "",
+        "done": false
+    },
+    {
+        "start_time": "2022-06-02 13:40:00",
+        "end_time": "",
+        "duration": "",
+        "who": "@v.adela",
+        "type": "block",
+        "title": "metodika psan\u00ed, my\u0161lenky o textu (agdx-project)",
+        "location": "",
+        "done": false
+    },
+    {
+        "start_time": "2022-06-02 14:10:00",
+        "end_time": "",
+        "duration": "",
+        "who": "@Ond\u0159ej",
+        "type": "block",
+        "title": "typo report, in progress type (agdx-project)",
+        "location": "",
+        "done": false
+    },
+    {
+        "start_time": "2022-06-02 14:40:00",
+        "end_time": "",
+        "duration": "",
+        "who": "@everyone",
+        "type": "block",
+        "title": "pauza (10min)",
+        "location": "",
+        "done": false
+    },
+    {
+        "start_time": "2022-06-02 14:50:00",
+        "end_time": "",
+        "duration": "",
+        "who": "@JakubS",
+        "type": "block",
+        "title": "web Duholeum - gener\u00e1tor",
+        "location": "",
+        "done": false
+    },
+    {
+        "start_time": "2022-06-02 15:20:00",
+        "end_time": "",
+        "duration": "",
+        "who": "@FlyingMochi",
+        "type": "block",
+        "title": "VR podcast",
+        "location": "",
+        "done": false
+    },
+    {
+        "start_time": "2022-06-02 15:50:00",
+        "end_time": "",
+        "duration": "",
+        "who": "@everyone",
+        "type": "block",
+        "title": "pauza (10min)",
+        "location": "",
+        "done": false
+    },
+    {
+        "start_time": "2022-06-02 16:00:00",
+        "end_time": "",
+        "duration": "",
+        "who": "@everyone",
+        "type": "block",
+        "title": "diskuse o sebahodnocen\u00ed",
+        "location": "",
+        "done": false
     }
 ]

@@ -1,6 +1,5 @@
 ####
-# TODO:harmonogram is saved to a json, so the app can be quit safely
-#       it is also saved after every delay
+# TODO: save_harmonogram
 ####
 
 import os
@@ -28,6 +27,8 @@ class interval:
             self.end_time = datetime.datetime.strptime(year+date+when.split("-")[1], format)
         except:
              self.end_time = ""
+        self.duration = time # this is not used right now
+        
         self.who = who
         if what == "pauza" or what == "pause":
             self.type = "pause"
@@ -35,7 +36,6 @@ class interval:
         else:
             self.type = "block"
             self.title = what
-        self.duration = time
         self.location = where
         self.done = False
 
@@ -103,25 +103,28 @@ tabulka = """| ŠTVRTOK 2.6. |                      |                           
 
 harmonogram = md2harmonogram(tabulka)
 save_harmonogram(harmonogram, harmonogram_path)
+# harmonogram = load_harmonogram(harmonogram_path)
+# for item in harmonogram:
+#     print(type(item))
 
-bola_pauza = False
-current_time = datetime.datetime.now()
-for item in harmonogram:
-    while not item.done:
-        current_time = datetime.datetime.now()
-        # if start_time uz bol, ale nie davnejseie ako 1 minutu dozadz, tak zvon
-        if item.start_time <= current_time < item.start_time + datetime.timedelta(seconds=30):
-            if item.type == "pause":
-                bola_pauza = True
-                playsound(sound_pause_start_path)
-                item.done = True
-            elif bola_pauza == True:
-                bola_pauza = False
-                playsound(sound_pause_end_path)
-                item.done = True
-            else :
-                playsound(sound_block_path)
-                item.done = True
-        # ak start_time uz bol, davnejsie ako 1 minutut dozadu, tak proste done
-        elif item.start_time < current_time:
-            item.done = True
+# bola_pauza = False
+# current_time = datetime.datetime.now()
+# for item in harmonogram:
+#     while not item.done:
+#         current_time = datetime.datetime.now()
+#         # if start_time uz bol, ale nie davnejseie ako 1 minutu dozadz, tak zvon
+#         if item.start_time <= current_time < item.start_time + datetime.timedelta(seconds=30):
+#             if item.type == "pause":
+#                 bola_pauza = True
+#                 playsound(sound_pause_start_path)
+#                 item.done = True
+#             elif bola_pauza == True:
+#                 bola_pauza = False
+#                 playsound(sound_pause_end_path)
+#                 item.done = True
+#             else :
+#                 playsound(sound_block_path)
+#                 item.done = True
+#         # ak start_time uz bol, davnejsie ako 1 minutut dozadu, tak proste done
+#         elif item.start_time < current_time:
+#             item.done = True
