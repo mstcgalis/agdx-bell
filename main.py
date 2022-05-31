@@ -1,12 +1,11 @@
 ####
-# TODO: save_harmonogram
+# TODO: load_harmonogram
 ####
 
 import os
 from playsound import playsound
 import datetime
-
-from utillities import *
+import json
 
 
 ## FILE PATHS
@@ -18,24 +17,16 @@ harmonogram_path = "data/harmonogram.json"
 
 ## INTERVAL class
 class interval:
-    def __init__(self, date, when, who="", what="", time="", where=""):
-        year = "2022_"
-        format = "%Y_%d.%m.%H:%M"
+    def __init__(self, date, start, end="", type="block", who="", title="", time="", where=""):
         
-        self.start_time = datetime.datetime.strptime(year+date+when.split("-")[0], format)
-        try:
-            self.end_time = datetime.datetime.strptime(year+date+when.split("-")[1], format)
-        except:
-             self.end_time = ""
+        self.start_time = start
+
+        self.end_time = end # this should ideally be optional
         self.duration = time # this is not used right now
         
+        self.type = type
         self.who = who
-        if what == "pauza" or what == "pause":
-            self.type = "pause"
-            self.title = "pause"
-        else:
-            self.type = "block"
-            self.title = what
+        self.title = title
         self.location = where
         self.done = False
 
@@ -53,7 +44,11 @@ def md2harmonogram(inp):
     keys=[]
     day=""
     date=""
+    when=""
+    year = "2022_"
+    type="block"
     harmonogram = []
+    format = "%Y_%d.%m.%H:%M"
 
     for i,line in enumerate(lines):
         line = line.strip(" ")
@@ -67,12 +62,44 @@ def md2harmonogram(inp):
             dict = ({keys[_i]:v.strip() for _i,v in enumerate(line.split('|')) if  _i>0 and _i<len(keys)-1})
             if dict:
                 list.append(dict)
+    
     for dict in list:
-        item = interval(date, dict.get("WHEN",""), dict.get("WHO",""), dict.get("WHAT",""), dict.get("TIME",""), dict.get("WHERE",""))
+        when = dict.get("WHEN","")
+        start = datetime.datetime.strptime(year+date+when.split("-")[0], format)
+        try:
+            end = datetime.datetime.strptime(year+date+when.split("-")[1], format)
+        except:
+             end = ""
+        
+        what = dict.get("WHAT","")
+        if "pauza" in what or "pause" in what:
+            type = "pause"
+
+        item = interval(date, start, end, type, dict.get("WHO",""), what, dict.get("TIME",""), dict.get("WHERE",""))
         harmonogram.append(item)
     return harmonogram
 
 ## HARMONOGRAM functions
+def save_harmonogram(harmonogram, file_path):
+    with open(file_path, "w") as f:
+        data = []
+        for item in harmonogram:
+            data.append(item.__dict__)
+        json.dump(data, f, indent=4, default=str)
+    return True
+
+def load_harmonogram(file_path):
+    harmonogram = []
+
+    with open(file_path) as f:
+        try: list = json.load(f)
+        except: return False
+    
+    for dict in list:
+        harmonogram.append(interval(dict.get("date"), dict.get("start_time"), dict.get("end_time",""), dict.get("type","block"), dict.get("who",""), dict.get("what",""), dict.get("time",""), dict.get("location","")))
+
+    return harmonogram
+
 def add_delay(harmonogram, minutes):
     for item in harmonogram:
         if not item.done:
@@ -105,7 +132,7 @@ harmonogram = md2harmonogram(tabulka)
 save_harmonogram(harmonogram, harmonogram_path)
 # harmonogram = load_harmonogram(harmonogram_path)
 # for item in harmonogram:
-#     print(type(item))
+#     print(item)
 
 # bola_pauza = False
 # current_time = datetime.datetime.now()
