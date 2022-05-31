@@ -1,7 +1,7 @@
 [
     {
-        "start_time": "2022-06-02 10:00:00",
-        "end_time": "2022-06-02 10:15:00",
+        "start_time": "2022-05-31 17:40:00",
+        "end_time": "2022-05-31 17:41:00",
         "duration": "",
         "type": "pause",
         "who": "@everyone",
@@ -10,8 +10,8 @@
         "done": false
     },
     {
-        "start_time": "2022-06-02 10:15:00",
-        "end_time": "2022-06-02 10:30:00",
+        "start_time": "2022-05-31 17:41:00",
+        "end_time": "2022-05-31 17:42:00",
         "duration": "",
         "type": "block",
         "who": "@Zuzana",
@@ -20,8 +20,8 @@
         "done": false
     },
     {
-        "start_time": "2022-06-02 10:30:00",
-        "end_time": "2022-06-02 11:00:00",
+        "start_time": "2022-05-31 17:42:00",
+        "end_time": "2022-05-31 17:43:00",
         "duration": "",
         "type": "block",
         "who": "@danielmstc @hellboi",
@@ -30,8 +30,8 @@
         "done": false
     },
     {
-        "start_time": "2022-06-02 11:00:00",
-        "end_time": "2022-06-02 11:30:00",
+        "start_time": "2022-05-31 17:43:00",
+        "end_time": "2022-05-31 17:44:00",
         "duration": "",
         "type": "block",
         "who": "@honza_suchy",
@@ -40,8 +40,8 @@
         "done": false
     },
     {
-        "start_time": "2022-06-02 11:30:00",
-        "end_time": "2022-06-02 11:40:00",
+        "start_time": "2022-05-31 17:44:00",
+        "end_time": "2022-05-31 17:47:00",
         "duration": "",
         "type": "pause",
         "who": "@everyone",
@@ -50,8 +50,8 @@
         "done": false
     },
     {
-        "start_time": "2022-06-02 11:40:00",
-        "end_time": "2022-06-02 12:10:00",
+        "start_time": "2022-05-31 17:47:00",
+        "end_time": "2022-05-31 17:50:00",
         "duration": "",
         "type": "block",
         "who": "@petr",
@@ -60,8 +60,8 @@
         "done": false
     },
     {
-        "start_time": "2022-06-02 12:10:00",
-        "end_time": "2022-06-02 12:40:00",
+        "start_time": "2022-05-31 17:50:00",
+        "end_time": "2022-05-31 17:55:00",
         "duration": "",
         "type": "block",
         "who": "@julie",
@@ -70,8 +70,8 @@
         "done": false
     },
     {
-        "start_time": "2022-06-02 12:40:00",
-        "end_time": "2022-06-02 13:40:00",
+        "start_time": "2022-05-31 17:55:00",
+        "end_time": "2022-05-31 18:00:00",
         "duration": "",
         "type": "block",
         "who": "@everyone",
@@ -80,8 +80,8 @@
         "done": false
     },
     {
-        "start_time": "2022-06-02 13:40:00",
-        "end_time": "2022-06-02 14:10:00",
+        "start_time": "2022-05-31 18:00:00",
+        "end_time": "2022-05-31 18:10:00",
         "duration": "",
         "type": "block",
         "who": "@v.adela",
@@ -90,8 +90,8 @@
         "done": false
     },
     {
-        "start_time": "2022-06-02 14:10:00",
-        "end_time": "2022-06-02 14:40:00",
+        "start_time": "2022-05-31 18:10:00",
+        "end_time": "2022-05-31 18:15:00",
         "duration": "",
         "type": "block",
         "who": "@Ond\u0159ej",
@@ -100,8 +100,8 @@
         "done": false
     },
     {
-        "start_time": "2022-06-02 14:40:00",
-        "end_time": "2022-06-02 14:50:00",
+        "start_time": "2022-05-31 18:15:00",
+        "end_time": "2022-05-31 18:30:00",
         "duration": "",
         "type": "pause",
         "who": "@everyone",
@@ -110,8 +110,8 @@
         "done": false
     },
     {
-        "start_time": "2022-06-02 14:50:00",
-        "end_time": "2022-06-02 15:20:00",
+        "start_time": "2022-05-31 18:30:00",
+        "end_time": "2022-05-31 18:40:00",
         "duration": "",
         "type": "block",
         "who": "@JakubS",
@@ -120,8 +120,8 @@
         "done": false
     },
     {
-        "start_time": "2022-06-02 15:20:00",
-        "end_time": "2022-06-02 15:50:00",
+        "start_time": "2022-05-31 18:40:00",
+        "end_time": "2022-05-31 18:50:00",
         "duration": "",
         "type": "block",
         "who": "@FlyingMochi",
@@ -130,8 +130,8 @@
         "done": false
     },
     {
-        "start_time": "2022-06-02 15:50:00",
-        "end_time": "2022-06-02 16:00:00",
+        "start_time": "2022-05-31 18:50:00",
+        "end_time": "2022-05-31 19:00:00",
         "duration": "",
         "type": "pause",
         "who": "@everyone",
@@ -140,8 +140,8 @@
         "done": false
     },
     {
-        "start_time": "2022-06-02 16:00:00",
-        "end_time": "2022-06-02 00:00:00",
+        "start_time": "2022-05-31 19:00:00",
+        "end_time": "2022-05-31 00:00:00",
         "duration": "",
         "type": "block",
         "who": "@everyone",

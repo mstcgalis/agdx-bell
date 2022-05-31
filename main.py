@@ -1,5 +1,5 @@
 ####
-# TODO: load_harmonogram
+# TODO: timer methods - add 10 minutes
 ####
 
 import os
@@ -96,7 +96,6 @@ class timer:
     def arm(self):
         current_time = datetime.datetime.now()
         for i, item in enumerate(self.harmonogram):
-            print(i, item)
             while not item.done:
                 current_time = datetime.datetime.now()
                 # if start_time uz bol, ale nie davnejseie ako 30 sekund, tak zvon
@@ -104,12 +103,15 @@ class timer:
                     if item.type == "pause":
                         playsound(sound_pause_start_path)
                         item.done = True
+                        print(item)
                     elif harmonogram[i-1].type == "pause":
                         playsound(sound_pause_end_path)
                         item.done = True
+                        print(item)
                     else:
                         playsound(sound_block_path)
                         item.done = True
+                        print(item)
                 # ak start_time uz bol, davnejsie ako 1 minutu dozadu, tak je uz item done
                 elif item.start_time < current_time:
                     item.done = True
@@ -146,24 +148,24 @@ def add_delay(harmonogram, minutes):
     return harmonogram
 
 
-tabulka = """| ŠTVRTOK 2.6. |                      |                                                 |
+tabulka = """| ŠTVRTOK 31.5. |                      |                                                 |
 | ------------ | -------------------- | ----------------------------------------------- |
 | WHEN         | WHO                  | WHAT                                            |
-| 10:00        | @everyone            | příchod                                         |
-| 10:15        | @Zuzana              | úvod                                            |
-| 10:30        | @danielmstc @hellboi | #agdx-irl (agdx-report)                         |
-| 11:00        | @honza_suchy         | Untitled menu app (agdx-project)                |
-| 11:30        | @everyone            | pauza (10min)                                   |
-| 11:40        | @petr                | KAM (agdx-project)                              |
-| 12:10        | @julie               | podcast (agdx-project)                          |
-| 12:40        | @everyone            | obed (60min)                                    |
-| 13:40        | @v.adela             | metodika psaní, myšlenky o textu (agdx-project) |
-| 14:10        | @Ondřej              | typo report, in progress type (agdx-project)    |
-| 14:40        | @everyone            | pauza (10min)                                   |
-| 14:50        | @JakubS              | web Duholeum - generátor                        |
-| 15:20        | @FlyingMochi         | VR podcast                                      |
-| 15:50        | @everyone            | pauza (10min)                                   |
-| 16:00        | @everyone            | diskuse o sebahodnocení                         |
+| 17:40        | @everyone            | příchod                                         |
+| 17:41        | @Zuzana              | úvod                                            |
+| 17:42        | @danielmstc @hellboi | #agdx-irl (agdx-report)                         |
+| 17:43        | @honza_suchy         | Untitled menu app (agdx-project)                |
+| 17:44        | @everyone            | pauza (10min)                                   |
+| 17:47        | @petr                | KAM (agdx-project)                              |
+| 17:50        | @julie               | podcast (agdx-project)                          |
+| 17:55        | @everyone            | obed (60min)                                    |
+| 18:00        | @v.adela             | metodika psaní, myšlenky o textu (agdx-project) |
+| 18:10        | @Ondřej              | typo report, in progress type (agdx-project)    |
+| 18:15        | @everyone            | pauza (10min)                                   |
+| 18:30        | @JakubS              | web Duholeum - generátor                        |
+| 18:40        | @FlyingMochi         | VR podcast                                      |
+| 18:50        | @everyone            | pauza (10min)                                   |
+| 19:00        | @everyone            | diskuse o sebahodnocení                         |
 
 """
 harmonogram = md2harmonogram(tabulka)
