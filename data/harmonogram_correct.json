@@ -1,0 +1,152 @@
+[
+    {
+        "start_time": "2022-06-02 10:00:00",
+        "end_time": "2022-06-02 10:15:00",
+        "duration": "",
+        "type": "pause",
+        "who": "@everyone",
+        "title": "p\u0159\u00edchod",
+        "location": "",
+        "done": false
+    },
+    {
+        "start_time": "2022-06-02 10:15:00",
+        "end_time": "2022-06-02 10:30:00",
+        "duration": "",
+        "type": "block",
+        "who": "@Zuzana",
+        "title": "\u00favod",
+        "location": "",
+        "done": false
+    },
+    {
+        "start_time": "2022-06-02 10:30:00",
+        "end_time": "2022-06-02 11:00:00",
+        "duration": "",
+        "type": "block",
+        "who": "@danielmstc @hellboi",
+        "title": "#agdx-irl (agdx-report)",
+        "location": "",
+        "done": false
+    },
+    {
+        "start_time": "2022-06-02 11:00:00",
+        "end_time": "2022-06-02 11:30:00",
+        "duration": "",
+        "type": "block",
+        "who": "@honza_suchy",
+        "title": "Untitled menu app (agdx-project)",
+        "location": "",
+        "done": false
+    },
+    {
+        "start_time": "2022-06-02 11:30:00",
+        "end_time": "2022-06-02 11:40:00",
+        "duration": "",
+        "type": "pause",
+        "who": "@everyone",
+        "title": "pauza (10min)",
+        "location": "",
+        "done": false
+    },
+    {
+        "start_time": "2022-06-02 11:40:00",
+        "end_time": "2022-06-02 12:10:00",
+        "duration": "",
+        "type": "block",
+        "who": "@petr",
+        "title": "KAM (agdx-project)",
+        "location": "",
+        "done": false
+    },
+    {
+        "start_time": "2022-06-02 12:10:00",
+        "end_time": "2022-06-02 12:40:00",
+        "duration": "",
+        "type": "block",
+        "who": "@julie",
+        "title": "podcast (agdx-project)",
+        "location": "",
+        "done": false
+    },
+    {
+        "start_time": "2022-06-02 12:40:00",
+        "end_time": "2022-06-02 13:40:00",
+        "duration": "",
+        "type": "block",
+        "who": "@everyone",
+        "title": "obed (60min)",
+        "location": "",
+        "done": false
+    },
+    {
+        "start_time": "2022-06-02 13:40:00",
+        "end_time": "2022-06-02 14:10:00",
+        "duration": "",
+        "type": "block",
+        "who": "@v.adela",
+        "title": "metodika psan\u00ed, my\u0161lenky o textu (agdx-project)",
+        "location": "",
+        "done": false
+    },
+    {
+        "start_time": "2022-06-02 14:10:00",
+        "end_time": "2022-06-02 14:40:00",
+        "duration": "",
+        "type": "block",
+        "who": "@Ond\u0159ej",
+        "title": "typo report, in progress type (agdx-project)",
+        "location": "",
+        "done": false
+    },
+    {
+        "start_time": "2022-06-02 14:40:00",
+        "end_time": "2022-06-02 14:50:00",
+        "duration": "",
+        "type": "pause",
+        "who": "@everyone",
+        "title": "pauza (10min)",
+        "location": "",
+        "done": false
+    },
+    {
+        "start_time": "2022-06-02 14:50:00",
+        "end_time": "2022-06-02 15:20:00",
+        "duration": "",
+        "type": "block",
+        "who": "@JakubS",
+        "title": "web Duholeum - gener\u00e1tor",
+        "location": "",
+        "done": false
+    },
+    {
+        "start_time": "2022-06-02 15:20:00",
+        "end_time": "2022-06-02 15:50:00",
+        "duration": "",
+        "type": "block",
+        "who": "@FlyingMochi",
+        "title": "VR podcast",
+        "location": "",
+        "done": false
+    },
+    {
+        "start_time": "2022-06-02 15:50:00",
+        "end_time": "2022-06-02 16:00:00",
+        "duration": "",
+        "type": "pause",
+        "who": "@everyone",
+        "title": "pauza (10min)",
+        "location": "",
+        "done": false
+    },
+    {
+        "start_time": "2022-06-02 16:00:00",
+        "end_time": "2022-06-02 00:00:00",
+        "duration": "",
+        "type": "block",
+        "who": "@everyone",
+        "title": "diskuse o sebahodnocen\u00ed",
+        "location": "",
+        "done": false
+    }
+]
