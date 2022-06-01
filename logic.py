@@ -70,7 +70,7 @@ def md2harmonogram(inp):
 
 ## INTERVAL class
 class interval:
-    def __init__(self, start, end="", type="block", who="", title="", time="", where=""):
+    def __init__(self, start, end="", type="block", who="", what="", time="", where=""):
         
         self.start_time = start
 
@@ -79,15 +79,15 @@ class interval:
         
         self.type = type
         self.who = who
-        self.title = title
+        self.what = what
         self.location = where
         self.done = False
 
     def __repr__(self):
-        return f"{self.start_time}-{self.end_time}, {self.type}, {self.who}, {self.title}"
+        return f"{self.start_time}-{self.end_time}, {self.type}, {self.who}, {self.what}"
 
     def __str__(self):
-        return f"{self.start_time}-{self.end_time}, {self.type}, {self.who}, {self.title}"
+        return f"{self.start_time}-{self.end_time}, {self.type}, {self.who}, {self.what}"
 
 ## TIMER class
 class bell:
@@ -98,14 +98,14 @@ class bell:
     def get_current_interval(self):
         for item in self.harmonogram:
             current_time = datetime.datetime.now()
-            if item.start_time > current_time + datetime.timedelta(seconds=30):
+            if item.end_time > current_time + datetime.timedelta(seconds=30):
                 return item
         return False
     
     def get_next_interval(self):
         for i, item in enumerate(self.harmonogram):
             current_time = datetime.datetime.now()
-            if item.start_time > current_time + datetime.timedelta(seconds=30):
+            if item.end_time > current_time + datetime.timedelta(seconds=30):
                 if type(self.harmonogram[i+1]) == interval:
                     return self.harmonogram[i+1]
                 else:

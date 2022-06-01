@@ -7,12 +7,12 @@ from logic import *
 
 ## DATA
 harmonogram_path = os.path.normpath("data/harmonogram.json")
-tabulka = """| ŠTVRTOK 31.5. |                      |                                                 |
+tabulka = """| ŠTVRTOK 1.6. |                      |                                                 |
 | ------------ | -------------------- | ----------------------------------------------- |
 | WHEN         | WHO                  | WHAT                                            |
-| 17:40        | @everyone            | příchod                                         |
-| 17:41        | @Zuzana              | úvod                                            |
-| 17:42        | @danielmstc @hellboi | #agdx-irl (agdx-report)                         |
+| 11:50        | @everyone            | příchod                                         |
+| 11:56        | @Zuzana              | úvod                                            |
+| 13:00        | @danielmstc @hellboi | #agdx-irl (agdx-report)                         |
 | 17:43        | @honza_suchy         | Untitled menu app (agdx-project)                |
 | 17:44        | @everyone            | pauza (10min)                                   |
 | 17:47        | @petr                | KAM (agdx-project)                              |
@@ -49,7 +49,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         current = self.bell.arm()
         # if true, do nothing
         if current:
-            pass
+            self.update_intervals()
         # if a new item has rung, update the ui
         # if there is no interval lef, also update the ui
         else:
@@ -78,7 +78,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         else:
             self.now_start_end.setText(current_interval.start_time.strftime(self.hh_mm_format) + "-" + current_interval.end_time.strftime(self.hh_mm_format))
             self.now_who.setText(current_interval.who)
-            self.now_what.setText(current_interval.title)
+            self.now_what.setText(current_interval.what)
             if current_interval.type == "pause":
                 self.now.setStyleSheet(now_pause_styleheet)
             else: self.now.setStyleSheet(now_block_stylesheet)
