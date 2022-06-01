@@ -15,8 +15,8 @@ tabulka = """| ŠTVRTOK 1.6. |                      |                           
 | 11:56        | @Zuzana              | úvod                                            |
 | 11:59        | @danielmstc @hellboi | #agdx-irl (agdx-report)                         |
 | 12:06        | @honza_suchy         | Untitled menu app (agdx-project)                |
-| 12:15        | @everyone            | pauza (10min)                                   |
-| 12:47        | @petr                | KAM (agdx-project)                              |
+| 16:30        | @everyone            | pauza (10min)                                   |
+| 16:50        | @petr                | KAM (agdx-project)                              |
 
 """
 harmonogram = md2harmonogram(tabulka)
@@ -51,6 +51,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def tick(self):
         # update the clock
         self.update_clock()
+        self.update_slider()
         if type(self.bell.arm()) == interval:
             self.update_intervals()
     
@@ -99,6 +100,8 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
     def update_clock(self):
         self.clock.setText(datetime.datetime.now().strftime(self.hh_mm_format))
 
+    def update_slider(self):
+        print(type(self.bell.get_current_interval().start_time - self.bell.get_current_interval().end_time))
 
 
 # LAUNCH

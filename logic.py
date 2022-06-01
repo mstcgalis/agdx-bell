@@ -6,7 +6,7 @@ from audioop import add
 import os
 from time import time
 from playsound import playsound
-import datetime
+from datetime import datetime, timedelta
 import json
 
 
@@ -47,7 +47,7 @@ def md2harmonogram(inp):
     # turn the table list of dicts to a harmonogram of intervals
     for i, dict in enumerate(list):
         when = dict.get("WHEN")
-        start = datetime.datetime.strptime(year+date+when.split("-")[0], format)
+        start = datetime.strptime(year+date+when.split("-")[0], format)
         end = ""
 
         what = dict.get("WHAT","")
@@ -64,7 +64,7 @@ def md2harmonogram(inp):
         try:
             item.end_time = harmonogram[i+1].start_time
         except:
-            item.end_time = datetime.datetime.strptime(year+date+"00:00", format)
+            item.end_time = datetime.strptime(year+date+"00:00", format)
 
     return harmonogram
 
@@ -97,14 +97,14 @@ class bell:
 
     def get_current_interval(self):
         for item in self.harmonogram:
-            current_time = datetime.datetime.now()
+            current_time = datetime.now()
             if item.end_time > current_time:
                 return item
         return False
     
     def get_next_interval(self):
         for i, item in enumerate(self.harmonogram):
-            current_time = datetime.datetime.now()
+            current_time = datetime.now()
             if item.end_time > current_time:
                 if type(self.harmonogram[i+1]) == interval:
                     return self.harmonogram[i+1]
@@ -117,10 +117,10 @@ class bell:
     # else a intrval is currently in progess - return True
     # if there is no current interval, return False
     def arm(self):
-        current_time = datetime.datetime.now()
+        current_time = datetime.now()
         for i, item in enumerate(self.harmonogram):
                 # if start_time uz bol, ale nie davnejseie ako 30 sekund, tak zvon
-                if item.start_time <= current_time < item.start_time + datetime.timedelta(seconds=10) and not item.done:
+                if item.start_time <= current_time < item.start_time + timedelta(seconds=10) and not item.done:
                     if item.type == "pause":
                         playsound(sound_pause_start_path)
                         item.done = True
@@ -161,17 +161,17 @@ def load_harmonogram(file_path):
         try: list = json.load(f)
         except: return False
     for dict in list:
-        start_time = datetime.datetime.strptime(dict.get("start_time"), format)
-        end_time = datetime.datetime.strptime(dict.get("end_time"), format)
+        start_time = datetime.strptime(dict.get("start_time"), format)
+        end_time = datetime.strptime(dict.get("end_time"), format)
         harmonogram.append(interval(start_time, end_time, dict.get("type","block"), dict.get("who",""), dict.get("what",""), dict.get("time",""), dict.get("location","")))
     return harmonogram
 
 def add_delay(harmonogram, minutes):
     for item in harmonogram:
         if not item.done:
-            item.start_time + datetime.timedelta(minutes=minutes)
+            item.start_time + timedelta(minutes=minutes)
             try:
-                item.end_time + datetime.timedelta(minutes=minutes)
+                item.end_time + timedelta(minutes=minutes)
             except:
                 pass
     return harmonogram
