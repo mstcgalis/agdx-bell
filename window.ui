@@ -42,6 +42,9 @@
   <property name="styleSheet">
    <string notr="true">QMainWindow {
 	background-color:  #000000;
+}
+QLabel{
+	color: #FFFFFF;
 }</string>
   </property>
   <widget class="QWidget" name="centralwidget">

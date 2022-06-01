@@ -90,15 +90,35 @@ class interval:
         return f"{self.start_time}-{self.end_time}, {self.type}, {self.who}, {self.title}"
 
 ## TIMER class
-class timer:
+class bell:
     def __init__(self, harmonogram):
         self.harmonogram = harmonogram
+        self.done = False
+
+    def get_current_interval(self):
+        for item in self.harmonogram:
+            current_time = datetime.datetime.now()
+            if item.start_time > current_time + datetime.timedelta(seconds=30):
+                return item
+        return False
     
+    def get_next_interval(self):
+        for i, item in enumerate(self.harmonogram):
+            current_time = datetime.datetime.now()
+            if item.start_time > current_time + datetime.timedelta(seconds=30):
+                if type(self.harmonogram[i+1]) == interval:
+                    return self.harmonogram[i+1]
+                else:
+                    return False
+        return False
+
+    # this will be triggered every second
+    # if it is time, ring and return the item
+    # else return True
+    # if there is no current interval, return False
     def arm(self):
         current_time = datetime.datetime.now()
         for i, item in enumerate(self.harmonogram):
-            while not item.done:
-                current_time = datetime.datetime.now()
                 # if start_time uz bol, ale nie davnejseie ako 30 sekund, tak zvon
                 if item.start_time <= current_time < item.start_time + datetime.timedelta(seconds=30):
                     if item.type == "pause":
@@ -113,9 +133,12 @@ class timer:
                         playsound(sound_block_path)
                         item.done = True
                         return item
-                # ak start_time uz bol, davnejsie ako 1 minutu dozadu, tak je uz item done
-                elif item.start_time < current_time:
-                    item.done = True
+                # ak je item prave teraz current, return True
+                elif item.start_time < current_time < item.end_time:
+                    return True
+                # inak je uz item done
+                else: item.done = True           
+        self.done = True
         return False
 
     def delay(self, minutes):
