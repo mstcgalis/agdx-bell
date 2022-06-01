@@ -73,14 +73,14 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         current_interval = self.bell.get_current_interval()
         # if there is no current interval
         if current_interval == False:
-                self.now_start_end.setText("00-00")
+                self.now_start_end.setText("00 – 00")
                 self.now_who.setText("@everyone")
                 self.now_what.setText(random.choice(self.pause_messages))
                 self.now.setStyleSheet(now_pause_styleheet)
         # there is a current interval
         else:
             # general
-            self.now_start_end.setText(current_interval.start_time.strftime(self.hh_mm_format) + "-" + current_interval.end_time.strftime(self.hh_mm_format))
+            self.now_start_end.setText(current_interval.start_time.strftime(self.hh_mm_format) + " – " + current_interval.end_time.strftime(self.hh_mm_format))
             self.now_who.setText(current_interval.who)
             self.now_what.setText(current_interval.what)
             # pause
@@ -99,11 +99,11 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         # update the next_interval
         next_interval = self.bell.get_next_interval()
         if next_interval == False:
-            self.next_start_end.setText("00-00")
+            self.next_start_end.setText("00 – 00")
             self.next_who.setText("@everyone")
             self.next.setStyleSheet(next_pause_stylesheet)
         else:
-            self.next_start_end.setText(next_interval.start_time.strftime(self.hh_mm_format) + "-" + next_interval.end_time.strftime(self.hh_mm_format))
+            self.next_start_end.setText(next_interval.start_time.strftime(self.hh_mm_format) + " – " + next_interval.end_time.strftime(self.hh_mm_format))
             self.next_who.setText(next_interval.who)
             if next_interval.type == "pause":
                 self.next.setStyleSheet(next_pause_stylesheet)
