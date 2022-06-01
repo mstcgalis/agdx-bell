@@ -14,6 +14,7 @@ sound_pause_start_path = os.path.normpath("sounds/ding.mp3")
 sound_pause_end_path = os.path.normpath("sounds/wood.mp3")
 
 harmonogram_path = os.path.normpath("data/harmonogram.json")
+harmonogram_path = "/Users/atelier/Library/Application Support/agdx-roadmap.live/harmonogram.json"
 
 ## CONVERSION from markdown to harmonogram
 def md2harmonogram(inp):

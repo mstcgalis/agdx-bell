@@ -14,11 +14,11 @@ tabulka = """| ŠTVRTOK 1.6. |                      |                           
 | ------------ | -------------------- | ----------------------------------------------- |
 | WHEN         | WHO                  | WHAT                                            |
 | 18:10        | @everyone            | příchod                                         |
-| 18:40        | @Zuzana              | úvod                                            |
-| 19:10        | @danielmstc @hellboi | #agdx-irl (agdx-report)                         |
-| 19:20        | @honza_suchy         | Untitled menu app (agdx-project)                |
-| 19:25        | @everyone            | pauza (10min)                                   |
-| 19:30        | @petr                | KAM (agdx-project)                              |
+| 21:20        | @Zuzana              | úvod                                            |
+| 21:30        | @danielmstc @hellboi | #agdx-irl (agdx-report)                         |
+| 21:40        | @honza_suchy         | Untitled menu app (agdx-project)                |
+| 21:45        | @everyone            | pauza (10min)                                   |
+| 22:00        | @petr                | KAM (agdx-project)                              |
 
 """
 if load_harmonogram(harmonogram_path):
