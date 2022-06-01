@@ -15,8 +15,8 @@ tabulka = """| ŠTVRTOK 1.6. |                      |                           
 | 11:56        | @Zuzana              | úvod                                            |
 | 11:59        | @danielmstc @hellboi | #agdx-irl (agdx-report)                         |
 | 12:06        | @honza_suchy         | Untitled menu app (agdx-project)                |
-| 16:50        | @everyone            | pauza (10min)                                   |
-| 17:05        | @petr                | KAM (agdx-project)                              |
+| 17:19        | @everyone            | pauza (10min)                                   |
+| 17:40        | @petr                | KAM (agdx-project)                              |
 
 """
 harmonogram = md2harmonogram(tabulka)
@@ -110,9 +110,11 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         # if there is a current interval
         hundred_delta = current_interval.end_time - current_interval.start_time
         delta = self.bell.get_current_interval().end_time - current_time
-        x = delta / hundred_delta
-        print(int(x * 100))
-        self.progressBar.setValue(100 - int(x * 100))
+        x = delta.seconds / hundred_delta.seconds
+        value = 100 - x * 100
+        if value < 6:
+            value = 6
+        self.progressBar.setValue(int(value))
 
 
 # LAUNCH
