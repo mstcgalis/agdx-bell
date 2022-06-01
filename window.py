@@ -50,6 +50,8 @@ class Ui_MainWindow(object):
         self.lista.setLayoutDirection(QtCore.Qt.LayoutDirection.LeftToRight)
         self.lista.setObjectName("lista")
         self.horizontalLayout = QtWidgets.QHBoxLayout(self.lista)
+        self.horizontalLayout.setContentsMargins(10, 10, 10, 10)
+        self.horizontalLayout.setSpacing(0)
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.clock = QtWidgets.QLabel(self.lista)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Fixed)
@@ -86,10 +88,11 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(self.now.sizePolicy().hasHeightForWidth())
         self.now.setSizePolicy(sizePolicy)
         self.now.setMinimumSize(QtCore.QSize(1000, 460))
-        self.now.setMaximumSize(QtCore.QSize(1000, 460))
+        self.now.setMaximumSize(QtCore.QSize(1000, 540))
         self.now.setLayoutDirection(QtCore.Qt.LayoutDirection.LeftToRight)
         self.now.setAutoFillBackground(False)
         self.now.setStyleSheet("QWidget {\n"
+"    color: #FFFFFF;\n"
 "    background-color: #2B2B2B;\n"
 "    border-radius: 20px;\n"
 "}")
@@ -143,6 +146,32 @@ class Ui_MainWindow(object):
         self.now_what.setAlignment(QtCore.Qt.AlignmentFlag.AlignBottom|QtCore.Qt.AlignmentFlag.AlignHCenter)
         self.now_what.setObjectName("now_what")
         self.verticalLayout_2.addWidget(self.now_what)
+        self.progressBar = QtWidgets.QProgressBar(self.now)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.progressBar.sizePolicy().hasHeightForWidth())
+        self.progressBar.setSizePolicy(sizePolicy)
+        self.progressBar.setMinimumSize(QtCore.QSize(900, 50))
+        self.progressBar.setMaximumSize(QtCore.QSize(900, 50))
+        self.progressBar.setAutoFillBackground(False)
+        self.progressBar.setStyleSheet("QProgressBar {\n"
+"text-align: top;\n"
+"border-radius: 25px;\n"
+"background: #B8B8B8;\n"
+"width: 15px;\n"
+"}\n"
+"\n"
+"QProgressBar::chunk {\n"
+"background: #007AFF;\n"
+"border-radius: 25px;\n"
+"}")
+        self.progressBar.setProperty("value", 40)
+        self.progressBar.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeading|QtCore.Qt.AlignmentFlag.AlignLeft|QtCore.Qt.AlignmentFlag.AlignVCenter)
+        self.progressBar.setTextVisible(False)
+        self.progressBar.setInvertedAppearance(False)
+        self.progressBar.setObjectName("progressBar")
+        self.verticalLayout_2.addWidget(self.progressBar, 0, QtCore.Qt.AlignmentFlag.AlignHCenter)
         self.verticalLayout.addWidget(self.now, 0, QtCore.Qt.AlignmentFlag.AlignHCenter)
         self.next = QtWidgets.QFrame(self.hello)
         self.next.setEnabled(True)
@@ -155,7 +184,7 @@ class Ui_MainWindow(object):
         self.next.setMaximumSize(QtCore.QSize(560, 250))
         self.next.setLayoutDirection(QtCore.Qt.LayoutDirection.LeftToRight)
         self.next.setStyleSheet("QWidget {\n"
-"    background-color: #1C1C1C;\n"
+"    background-color: #2B2B2B;\n"
 "    border-radius: 20px;\n"
 "}")
         self.next.setObjectName("next")
@@ -182,7 +211,7 @@ class Ui_MainWindow(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.next_who.sizePolicy().hasHeightForWidth())
         self.next_who.setSizePolicy(sizePolicy)
-        self.next_who.setMinimumSize(QtCore.QSize(0, 50))
+        self.next_who.setMinimumSize(QtCore.QSize(0, 70))
         self.next_who.setMaximumSize(QtCore.QSize(16777215, 50))
         font = QtGui.QFont()
         font.setFamily("Inter")
