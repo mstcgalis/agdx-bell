@@ -2,9 +2,7 @@
 # TODO: timer methods - add 10 minutes
 ####
 
-from audioop import add
 import os
-from time import time
 from playsound import playsound
 from datetime import datetime, timedelta
 import json
