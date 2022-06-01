@@ -231,7 +231,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "agdx-roadmap.live"))
         self.clock.setText(_translate("MainWindow", "12:22"))
         self.now_start_end.setText(_translate("MainWindow", "13:30 - 13:45"))
         self.now_who.setText(_translate("MainWindow", "@namelessnobody"))

@@ -1,23 +1,24 @@
 import sys
 import random
 from PyQt6 import QtWidgets
-from PyQt6.QtCore import QTimer
+from PyQt6.QtCore import QTimer, QStandardPaths
 
 from window import Ui_MainWindow
 from logic import *
 
 ## DATA
 harmonogram_path = os.path.normpath("data/harmonogram.json")
+harmonogram_path = "/Users/admin/Library/Application Support/agdx-roadmap.live"
 
 tabulka = """| ŠTVRTOK 1.6. |                      |                                                 |
 | ------------ | -------------------- | ----------------------------------------------- |
 | WHEN         | WHO                  | WHAT                                            |
 | 18:10        | @everyone            | příchod                                         |
-| 18:20        | @Zuzana              | úvod                                            |
-| 18:30        | @danielmstc @hellboi | #agdx-irl (agdx-report)                         |
-| 18:35        | @honza_suchy         | Untitled menu app (agdx-project)                |
-| 18:40        | @everyone            | pauza (10min)                                   |
-| 19:00        | @petr                | KAM (agdx-project)                              |
+| 18:40        | @Zuzana              | úvod                                            |
+| 19:10        | @danielmstc @hellboi | #agdx-irl (agdx-report)                         |
+| 19:20        | @honza_suchy         | Untitled menu app (agdx-project)                |
+| 19:25        | @everyone            | pauza (10min)                                   |
+| 19:30        | @petr                | KAM (agdx-project)                              |
 
 """
 if load_harmonogram(harmonogram_path):
