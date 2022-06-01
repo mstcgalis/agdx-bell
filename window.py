@@ -159,15 +159,15 @@ class Ui_MainWindow(object):
 "text-align: top;\n"
 "border-radius: 25px;\n"
 "background: #B8B8B8;\n"
-"width: 15px;\n"
 "}\n"
 "\n"
 "QProgressBar::chunk {\n"
 "background: #007AFF;\n"
 "border-radius: 25px;\n"
 "}")
-        self.progressBar.setProperty("value", 40)
-        self.progressBar.setAlignment(QtCore.Qt.AlignmentFlag.AlignLeading|QtCore.Qt.AlignmentFlag.AlignLeft|QtCore.Qt.AlignmentFlag.AlignVCenter)
+        self.progressBar.setMinimum(0)
+        self.progressBar.setProperty("value", 6)
+        self.progressBar.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.progressBar.setTextVisible(False)
         self.progressBar.setInvertedAppearance(False)
         self.progressBar.setObjectName("progressBar")

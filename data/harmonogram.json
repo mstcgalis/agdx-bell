@@ -31,7 +31,7 @@
     },
     {
         "start_time": "2022-06-01 12:06:00",
-        "end_time": "2022-06-01 16:30:00",
+        "end_time": "2022-06-01 16:50:00",
         "duration": "",
         "type": "block",
         "who": "@honza_suchy",
@@ -40,8 +40,8 @@
         "done": false
     },
     {
-        "start_time": "2022-06-01 16:30:00",
-        "end_time": "2022-06-01 16:50:00",
+        "start_time": "2022-06-01 16:50:00",
+        "end_time": "2022-06-01 17:05:00",
         "duration": "",
         "type": "pause",
         "who": "@everyone",
@@ -50,7 +50,7 @@
         "done": false
     },
     {
-        "start_time": "2022-06-01 16:50:00",
+        "start_time": "2022-06-01 17:05:00",
         "end_time": "2022-06-01 00:00:00",
         "duration": "",
         "type": "block",

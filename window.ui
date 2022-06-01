@@ -352,7 +352,6 @@ QLabel{
 text-align: top;
 border-radius: 25px;
 background: #B8B8B8;
-width: 15px;
 }
 
 QProgressBar::chunk {
@@ -360,11 +359,14 @@ background: #007AFF;
 border-radius: 25px;
 }</string>
             </property>
+            <property name="minimum">
+             <number>0</number>
+            </property>
             <property name="value">
-             <number>40</number>
+             <number>6</number>
             </property>
             <property name="alignment">
-             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+             <set>Qt::AlignCenter</set>
             </property>
             <property name="textVisible">
              <bool>false</bool>

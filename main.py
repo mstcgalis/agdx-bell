@@ -15,8 +15,8 @@ tabulka = """| ŠTVRTOK 1.6. |                      |                           
 | 11:56        | @Zuzana              | úvod                                            |
 | 11:59        | @danielmstc @hellboi | #agdx-irl (agdx-report)                         |
 | 12:06        | @honza_suchy         | Untitled menu app (agdx-project)                |
-| 16:30        | @everyone            | pauza (10min)                                   |
-| 16:50        | @petr                | KAM (agdx-project)                              |
+| 16:50        | @everyone            | pauza (10min)                                   |
+| 17:05        | @petr                | KAM (agdx-project)                              |
 
 """
 harmonogram = md2harmonogram(tabulka)
@@ -98,10 +98,21 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             else: self.next.setStyleSheet(next_block_stylesheet)
     
     def update_clock(self):
-        self.clock.setText(datetime.datetime.now().strftime(self.hh_mm_format))
+        self.clock.setText(datetime.now().strftime(self.hh_mm_format))
 
     def update_slider(self):
-        print(type(self.bell.get_current_interval().start_time - self.bell.get_current_interval().end_time))
+        current_time = datetime.now()
+        current_interval = self.bell.get_current_interval()
+        # if there isnt a current interval
+        if type(current_interval) == bool:
+            self.progressBar.setValue(0)
+            return
+        # if there is a current interval
+        hundred_delta = current_interval.end_time - current_interval.start_time
+        delta = self.bell.get_current_interval().end_time - current_time
+        x = delta / hundred_delta
+        print(int(x * 100))
+        self.progressBar.setValue(100 - int(x * 100))
 
 
 # LAUNCH

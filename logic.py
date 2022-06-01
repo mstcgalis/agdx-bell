@@ -100,6 +100,7 @@ class bell:
             current_time = datetime.now()
             if item.end_time > current_time:
                 return item
+        # if there is no current interval
         return False
     
     def get_next_interval(self):
