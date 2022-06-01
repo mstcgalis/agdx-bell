@@ -36,7 +36,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.setupUi(self)
         self.bell = bell(load_harmonogram(harmonogram_path))
 
-        self.hh_mm_format = "%H:%m"
+        self.hh_mm_format = "%H:%M"
 
         # creating a timer object
         timer = QTimer(self)
@@ -55,28 +55,45 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         else:
             self.update_intervals()
         # update the clock
-        
+        self.update_clock()
 
     
     def update_intervals(self):
+        # now block stylesheet
+        now_block_stylesheet = "QWidget {\n	color: #FFFFFF;\n	background-color: #2B2B2B;\n	border-radius: 20px;\n}"
+        # now pause stylesheet
+        now_pause_styleheet = "QWidget {\n	color: #000000;\n	background-color: #FFFFFF;\n	border-radius: 20px;\n}"
+        # next block stylesheet
+        next_block_stylesheet = "QWidget {\n	color: #FFFFFF;\n	background-color: #2B2B2B;\n	border-radius: 20px;\n}"
+        # next paues stylesheet
+        next_pause_stylesheet = "QWidget {\n	color: #000000;\n	background-color: #FFFFFF;\n	border-radius: 20px;\n}"
+
         # upłdate the current_interval
         current_interval = self.bell.get_current_interval()
         if current_interval == False:
                 self.now_start_end.setText("00-00")
                 self.now_who.setText("@everyone")
                 self.now_what.setText("nothing")
+                self.now.setStyleSheet(now_pause_styleheet)
         else:
             self.now_start_end.setText(current_interval.start_time.strftime(self.hh_mm_format) + "-" + current_interval.end_time.strftime(self.hh_mm_format))
             self.now_who.setText(current_interval.who)
             self.now_what.setText(current_interval.title)
+            if current_interval.type == "pause":
+                self.now.setStyleSheet(now_pause_styleheet)
+            else: self.now.setStyleSheet(now_block_stylesheet)
         # update the next_interval
         next_interval = self.bell.get_next_interval()
         if next_interval == False:
             self.next_start_end.setText("00-00")
             self.next_who.setText("@everyone")
+            self.next.setStyleSheet(next_pause_stylesheet)
         else:
             self.next_start_end.setText(next_interval.start_time.strftime(self.hh_mm_format) + "-" + next_interval.end_time.strftime(self.hh_mm_format))
-            self.now_who.setText(next_interval.who)
+            self.next_who.setText(next_interval.who)
+            if current_interval.type == "pause":
+                self.next.setStyleSheet(next_pause_stylesheet)
+            else: self.next.setStyleSheet(next_block_stylesheet)
     
     def update_clock(self):
         self.clock.setText(datetime.datetime.now().strftime(self.hh_mm_format))
