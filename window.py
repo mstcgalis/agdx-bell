@@ -71,7 +71,7 @@ class Ui_MainWindow(object):
 "    color: black;\n"
 "}\n"
 "QPushButton::hover{\n"
-"    baxkground: black;\n"
+"    background: black;\n"
 "    border: 0px;\n"
 "    color: white;\n"
 "}")

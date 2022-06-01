@@ -1,7 +1,3 @@
-####
-# TODO: timer methods - add 10 minutes
-####
-
 import os
 from playsound import playsound
 from datetime import datetime, timedelta
@@ -9,9 +5,9 @@ import json
 
 
 ## FILE PATHS
-sound_block_path = os.path.normpath("sounds/beep.mp3")
-sound_pause_start_path = os.path.normpath("sounds/ding.mp3")
-sound_pause_end_path = os.path.normpath("sounds/wood.mp3")
+sound_block_path = os.path.normpath("sounds/agdx-bell_block.mp3")
+sound_pause_start_path = os.path.normpath("sounds/agdx-bell_pause_start.mp3")
+sound_pause_end_path = os.path.normpath("sounds/agdx-bell_pause_end.mp3")
 
 ## CONVERSION from markdown to harmonogram
 def md2harmonogram(inp):
@@ -140,7 +136,6 @@ class bell:
 
     def delay(self, minutes):
         self.harmonogram = add_delay(self.harmonogram, minutes)
-        save_harmonogram(self.harmonogram)
 
 ## HARMONOGRAM functions
 def save_harmonogram(harmonogram, file_path):
@@ -164,12 +159,12 @@ def load_harmonogram(file_path):
         harmonogram.append(interval(start_time, end_time, dict.get("type","block"), dict.get("who",""), dict.get("what",""), dict.get("time",""), dict.get("location","")))
     return harmonogram
 
-def add_delay(harmonogram, minutes):
+def add_delay(harmonogram, int):
+    current_time = datetime.now()
     for item in harmonogram:
-        if not item.done:
-            item.start_time + timedelta(minutes=minutes)
-            try:
-                item.end_time + timedelta(minutes=minutes)
-            except:
-                pass
+        if item.start_time >= current_time:
+            item.start_time += timedelta(minutes=int)
+        if item.what != "diskuse o sebahodnocení":   
+            if item.end_time >= current_time:
+                item.end_time += timedelta(minutes=int)
     return harmonogram

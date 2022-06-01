@@ -1,13 +1,13 @@
 import sys
 import random
 from PyQt6 import QtWidgets
-from PyQt6.QtCore import QTimer, QStandardPaths
+from PyQt6.QtCore import QTimer
 
 from window import Ui_MainWindow
 from logic import *
 
 ## DATA
-harmonogram_path = "/Users/admin/Library/Application Support/agdx-roadmap.live/harmonogram.json"
+harmonogram_path = "/Users/atelier/Library/Application Support/agdx-roadmap.live/harmonogram.json"
 
 tabulka = """| ŠTVRTOK 2.6. |                      |                                                 |
 | ------------ | -------------------- | ----------------------------------------------- |
@@ -27,6 +27,7 @@ tabulka = """| ŠTVRTOK 2.6. |                      |                           
 | 15:20        | @FlyingMochi         | VR podcast                                      |
 | 15:50        | @everyone            | pauza (10min)                                   |
 | 16:00        | @everyone            | diskuse o sebahodnocení                         |
+| 17:00        | @everyone            | afterka                                         |
 
 """
 if load_harmonogram(harmonogram_path):
@@ -41,9 +42,9 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.setupUi(self)
         self.bell = bell(harmonogram)
 
-        self.delay.clicked.connect(self.delay_ten)
-
         self.hh_mm_format = "%H:%M"
+
+        self.delay.clicked.connect(self.delay_ten)
 
         # creating a timer object
         timer = QTimer(self)
@@ -51,6 +52,8 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         timer.timeout.connect(self.tick)
         # update the timer every second
         timer.start(1000)
+
+        playsound(sound_block_path)
 
         self.pause_messages = [
             "walk around a bit :)",
@@ -97,7 +100,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             # pause
             if current_interval.type == "pause":
                 self.now.setStyleSheet(now_pause_styleheet)
-                if current_interval.what == "p\u0159\u00edchod":
+                if current_interval.what == "p\u0159\u00edchod" or current_interval.what == "afterka":
                     self.now_who.setText(current_interval.what)
                 else:
                     self.now_who.setText("pause")
@@ -140,8 +143,9 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.progressBar.setValue(int(value))
     
     def delay_ten(self):
-        print("delay")
-
+        self.bell.harmonogram = add_delay(self.bell.harmonogram, 10)
+        save_harmonogram(self.bell.harmonogram, harmonogram_path)
+        self.update_intervals()
 
 
 # LAUNCH
