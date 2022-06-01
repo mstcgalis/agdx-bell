@@ -156,9 +156,10 @@ def save_harmonogram(harmonogram, file_path):
 def load_harmonogram(file_path):
     harmonogram = []
     format = "%Y-%m-%d %H:%M:%S"
-    with open(file_path) as f:
-        try: list = json.load(f)
-        except: return False
+    try:
+        with open(file_path) as f:
+            list = json.load(f)
+    except: return False
     for dict in list:
         start_time = datetime.strptime(dict.get("start_time"), format)
         end_time = datetime.strptime(dict.get("end_time"), format)
