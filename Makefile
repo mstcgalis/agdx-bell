@@ -5,10 +5,10 @@ clean:
 	rm -rf build dist
 
 alias:
-	python setup.py py2app -A
+	python3.9 setup.py py2app -A
 
 app:
-	python setup.py py2app
+	python3.9 setup.py py2app
 
 run:
-	./dist/MyApplication.app/Contents/MacOS/MyApplication
+	./dist/agdx-roadmap.live.app/Contents/MacOS/agdx-roadmap.live

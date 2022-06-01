@@ -7,10 +7,10 @@ Usage:
 
 from setuptools import setup
 
-APP = ['main.py']
-DATA_FILES = ["sounds"]
+APP = ['agdx-roadmap.live.py']
+DATA_FILES = ["sounds", "data"]
 OPTIONS = {
-    'packages': ['PyQt', 'playsound']
+    'includes': ['PyQt6._qt', 'playsound', "sip"]
 }
 
 setup(
