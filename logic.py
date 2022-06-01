@@ -98,14 +98,14 @@ class bell:
     def get_current_interval(self):
         for item in self.harmonogram:
             current_time = datetime.datetime.now()
-            if item.end_time > current_time + datetime.timedelta(seconds=30):
+            if item.end_time > current_time:
                 return item
         return False
     
     def get_next_interval(self):
         for i, item in enumerate(self.harmonogram):
             current_time = datetime.datetime.now()
-            if item.end_time > current_time + datetime.timedelta(seconds=30):
+            if item.end_time > current_time:
                 if type(self.harmonogram[i+1]) == interval:
                     return self.harmonogram[i+1]
                 else:
@@ -114,13 +114,13 @@ class bell:
 
     # this will be triggered every second
     # if it is time, ring and return the item
-    # else return True
+    # else a intrval is currently in progess - return True
     # if there is no current interval, return False
     def arm(self):
         current_time = datetime.datetime.now()
         for i, item in enumerate(self.harmonogram):
                 # if start_time uz bol, ale nie davnejseie ako 30 sekund, tak zvon
-                if item.start_time <= current_time < item.start_time + datetime.timedelta(seconds=30):
+                if item.start_time <= current_time < item.start_time + datetime.timedelta(seconds=10) and not item.done:
                     if item.type == "pause":
                         playsound(sound_pause_start_path)
                         item.done = True

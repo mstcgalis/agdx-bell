@@ -11,7 +11,7 @@
     },
     {
         "start_time": "2022-06-01 11:56:00",
-        "end_time": "2022-06-01 13:00:00",
+        "end_time": "2022-06-01 11:59:00",
         "duration": "",
         "type": "block",
         "who": "@Zuzana",
@@ -20,8 +20,8 @@
         "done": false
     },
     {
-        "start_time": "2022-06-01 13:00:00",
-        "end_time": "2022-06-01 17:43:00",
+        "start_time": "2022-06-01 11:59:00",
+        "end_time": "2022-06-01 12:06:00",
         "duration": "",
         "type": "block",
         "who": "@danielmstc @hellboi",
@@ -30,8 +30,8 @@
         "done": false
     },
     {
-        "start_time": "2022-06-01 17:43:00",
-        "end_time": "2022-06-01 17:44:00",
+        "start_time": "2022-06-01 12:06:00",
+        "end_time": "2022-06-01 12:15:00",
         "duration": "",
         "type": "block",
         "who": "@honza_suchy",
@@ -40,8 +40,8 @@
         "done": false
     },
     {
-        "start_time": "2022-06-01 17:44:00",
-        "end_time": "2022-06-01 17:47:00",
+        "start_time": "2022-06-01 12:15:00",
+        "end_time": "2022-06-01 12:47:00",
         "duration": "",
         "type": "pause",
         "who": "@everyone",
@@ -50,102 +50,12 @@
         "done": false
     },
     {
-        "start_time": "2022-06-01 17:47:00",
-        "end_time": "2022-06-01 17:50:00",
+        "start_time": "2022-06-01 12:47:00",
+        "end_time": "2022-06-01 00:00:00",
         "duration": "",
         "type": "block",
         "who": "@petr",
         "what": "KAM (agdx-project)",
-        "location": "",
-        "done": false
-    },
-    {
-        "start_time": "2022-06-01 17:50:00",
-        "end_time": "2022-06-01 17:55:00",
-        "duration": "",
-        "type": "block",
-        "who": "@julie",
-        "what": "podcast (agdx-project)",
-        "location": "",
-        "done": false
-    },
-    {
-        "start_time": "2022-06-01 17:55:00",
-        "end_time": "2022-06-01 18:00:00",
-        "duration": "",
-        "type": "block",
-        "who": "@everyone",
-        "what": "obed (60min)",
-        "location": "",
-        "done": false
-    },
-    {
-        "start_time": "2022-06-01 18:00:00",
-        "end_time": "2022-06-01 18:10:00",
-        "duration": "",
-        "type": "block",
-        "who": "@v.adela",
-        "what": "metodika psan\u00ed, my\u0161lenky o textu (agdx-project)",
-        "location": "",
-        "done": false
-    },
-    {
-        "start_time": "2022-06-01 18:10:00",
-        "end_time": "2022-06-01 18:20:00",
-        "duration": "",
-        "type": "block",
-        "who": "@Ond\u0159ej",
-        "what": "typo report, in progress type (agdx-project)",
-        "location": "",
-        "done": false
-    },
-    {
-        "start_time": "2022-06-01 18:20:00",
-        "end_time": "2022-06-01 21:55:00",
-        "duration": "",
-        "type": "pause",
-        "who": "@everyone",
-        "what": "pauza (10min)",
-        "location": "",
-        "done": false
-    },
-    {
-        "start_time": "2022-06-01 21:55:00",
-        "end_time": "2022-06-01 21:59:00",
-        "duration": "",
-        "type": "block",
-        "who": "@JakubS",
-        "what": "web Duholeum - gener\u00e1tor",
-        "location": "",
-        "done": false
-    },
-    {
-        "start_time": "2022-06-01 21:59:00",
-        "end_time": "2022-06-01 22:55:00",
-        "duration": "",
-        "type": "block",
-        "who": "@FlyingMochi",
-        "what": "VR podcast",
-        "location": "",
-        "done": false
-    },
-    {
-        "start_time": "2022-06-01 22:55:00",
-        "end_time": "2022-06-01 23:00:00",
-        "duration": "",
-        "type": "pause",
-        "who": "@everyone",
-        "what": "pauza (10min)",
-        "location": "",
-        "done": false
-    },
-    {
-        "start_time": "2022-06-01 23:00:00",
-        "end_time": "2022-06-01 00:00:00",
-        "duration": "",
-        "type": "block",
-        "who": "@everyone",
-        "what": "diskuse o sebahodnocen\u00ed",
         "location": "",
         "done": false
     }

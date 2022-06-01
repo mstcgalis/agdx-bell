@@ -1,4 +1,5 @@
 import sys
+import random
 from PyQt6 import QtWidgets
 from PyQt6.QtCore import QTimer
 
@@ -12,19 +13,10 @@ tabulka = """| ŠTVRTOK 1.6. |                      |                           
 | WHEN         | WHO                  | WHAT                                            |
 | 11:50        | @everyone            | příchod                                         |
 | 11:56        | @Zuzana              | úvod                                            |
-| 13:00        | @danielmstc @hellboi | #agdx-irl (agdx-report)                         |
-| 17:43        | @honza_suchy         | Untitled menu app (agdx-project)                |
-| 17:44        | @everyone            | pauza (10min)                                   |
-| 17:47        | @petr                | KAM (agdx-project)                              |
-| 17:50        | @julie               | podcast (agdx-project)                          |
-| 17:55        | @everyone            | obed (60min)                                    |
-| 18:00        | @v.adela             | metodika psaní, myšlenky o textu (agdx-project) |
-| 18:10        | @Ondřej              | typo report, in progress type (agdx-project)    |
-| 18:20        | @everyone            | pauza (10min)                                   |
-| 21:55        | @JakubS              | web Duholeum - generátor                        |
-| 21:59        | @FlyingMochi         | VR podcast                                      |
-| 22:55        | @everyone            | pauza (10min)                                   |
-| 23:00        | @everyone            | diskuse o sebahodnocení                         |
+| 11:59        | @danielmstc @hellboi | #agdx-irl (agdx-report)                         |
+| 12:06        | @honza_suchy         | Untitled menu app (agdx-project)                |
+| 12:15        | @everyone            | pauza (10min)                                   |
+| 12:47        | @petr                | KAM (agdx-project)                              |
 
 """
 harmonogram = md2harmonogram(tabulka)
@@ -44,19 +36,23 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         timer.timeout.connect(self.tick)
         # update the timer every second
         timer.start(1000)
+
+        self.pause_messages = [
+            "walk around a bit :)",
+            "have a coffee :)",
+            "close your eyes and listen :)",
+            "do nothing :)",
+            "strech your body :)"
+        ]
+
+        self.update_intervals()
+
     
     def tick(self):
-        current = self.bell.arm()
-        # if true, do nothing
-        if current:
-            self.update_intervals()
-        # if a new item has rung, update the ui
-        # if there is no interval lef, also update the ui
-        else:
-            self.update_intervals()
         # update the clock
         self.update_clock()
-
+        if type(self.bell.arm()) == interval:
+            self.update_intervals()
     
     def update_intervals(self):
         # now block stylesheet
@@ -68,12 +64,12 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         # next paues stylesheet
         next_pause_stylesheet = "QWidget {\n	color: #000000;\n	background-color: #FFFFFF;\n	border-radius: 20px;\n}"
 
-        # upłdate the current_interval
+        # update the current_interval
         current_interval = self.bell.get_current_interval()
         if current_interval == False:
                 self.now_start_end.setText("00-00")
                 self.now_who.setText("@everyone")
-                self.now_what.setText("nothing")
+                self.now_what.setText(random.choice(self.pause_messages))
                 self.now.setStyleSheet(now_pause_styleheet)
         else:
             self.now_start_end.setText(current_interval.start_time.strftime(self.hh_mm_format) + "-" + current_interval.end_time.strftime(self.hh_mm_format))
@@ -81,7 +77,12 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             self.now_what.setText(current_interval.what)
             if current_interval.type == "pause":
                 self.now.setStyleSheet(now_pause_styleheet)
-            else: self.now.setStyleSheet(now_block_stylesheet)
+                self.now_who.setText("pause")
+                self.now_what.setText(random.choice(self.pause_messages))
+            else: 
+                self.now.setStyleSheet(now_block_stylesheet)
+                self.now_who.setText(current_interval.who)
+                self.now_what.setText(current_interval.what)
         # update the next_interval
         next_interval = self.bell.get_next_interval()
         if next_interval == False:
@@ -91,7 +92,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         else:
             self.next_start_end.setText(next_interval.start_time.strftime(self.hh_mm_format) + "-" + next_interval.end_time.strftime(self.hh_mm_format))
             self.next_who.setText(next_interval.who)
-            if current_interval.type == "pause":
+            if next_interval.type == "pause":
                 self.next.setStyleSheet(next_pause_stylesheet)
             else: self.next.setStyleSheet(next_block_stylesheet)
     
