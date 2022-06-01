@@ -8,7 +8,7 @@ from logic import *
 
 ## DATA
 harmonogram_path = os.path.normpath("data/harmonogram.json")
-harmonogram_path = f"/Users/{os.getlogin()}/Library/Application Support/agdx-roadmap.live/harmonogram.json"
+harmonogram_path = "/Users/atelier/Library/Application Support/agdx-roadmap.live/harmonogram.json"
 
 tabulka = """| ŠTVRTOK 1.6. |                      |                                                 |
 | ------------ | -------------------- | ----------------------------------------------- |
