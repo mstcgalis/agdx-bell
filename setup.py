@@ -8,9 +8,11 @@ Usage:
 from setuptools import setup
 
 APP = ['agdx-roadmap.live.py']
-DATA_FILES = ["sounds", "data"]
+DATA_FILES = ["icon.icns", "sounds", "data"]
 OPTIONS = {
-    'includes': ['PyQt6._qt', 'playsound', "sip"]
+    'includes': ['PyQt6._qt', 'playsound', "sip"],
+    'iconfile':'icon.icns',
+    'plist': {'CFBundleShortVersionString':'0.1.0',}
 }
 
 setup(
