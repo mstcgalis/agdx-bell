@@ -7,17 +7,26 @@ from window import Ui_MainWindow
 from logic import *
 
 ## DATA
-harmonogram_path = "/Users/atelier/Library/Application Support/agdx-roadmap.live/harmonogram.json"
+harmonogram_path = "/Users/admin/Library/Application Support/agdx-roadmap.live/harmonogram.json"
 
-tabulka = """| ŠTVRTOK 1.6. |                      |                                                 |
+tabulka = """| ŠTVRTOK 2.6. |                      |                                                 |
 | ------------ | -------------------- | ----------------------------------------------- |
 | WHEN         | WHO                  | WHAT                                            |
-| 18:10        | @everyone            | příchod                                         |
-| 21:20        | @Zuzana              | úvod                                            |
-| 21:30        | @danielmstc @hellboi | #agdx-irl (agdx-report)                         |
-| 21:40        | @honza_suchy         | Untitled menu app (agdx-project)                |
-| 21:45        | @everyone            | pauza (10min)                                   |
-| 22:00        | @petr                | KAM (agdx-project)                              |
+| 10:00        | @everyone            | příchod                                         |
+| 10:15        | @Zuzana              | úvod                                            |
+| 10:30        | @danielmstc @hellboi | #agdx-irl (agdx-report)                         |
+| 11:00        | @honza_suchy         | Untitled menu app (agdx-project)                |
+| 11:30        | @everyone            | pauza (10min)                                   |
+| 11:40        | @petr                | KAM (agdx-project)                              |
+| 12:10        | @julie               | podcast (agdx-project)                          |
+| 12:40        | @everyone            | obed (60min)                                    |
+| 13:40        | @v.adela             | myšlenky o textu (agdx-project)                 |
+| 14:10        | @Ondřej              | typo report (agdx-project)                      |
+| 14:40        | @everyone            | pauza (10min)                                   |
+| 14:50        | @JakubS              | web Duholeum - generátor                        |
+| 15:20        | @FlyingMochi         | VR podcast                                      |
+| 15:50        | @everyone            | pauza (10min)                                   |
+| 16:00        | @everyone            | diskuse o sebahodnocení                         |
 
 """
 if load_harmonogram(harmonogram_path):
@@ -31,6 +40,8 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         super(MainWindow, self).__init__(*args, **kwargs)
         self.setupUi(self)
         self.bell = bell(harmonogram)
+
+        self.delay.clicked.connect(self.delay_ten)
 
         self.hh_mm_format = "%H:%M"
 
@@ -127,6 +138,10 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         if value < 6:
             value = 6
         self.progressBar.setValue(int(value))
+    
+    def delay_ten(self):
+        print("delay")
+
 
 
 # LAUNCH

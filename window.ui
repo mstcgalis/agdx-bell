@@ -112,6 +112,46 @@ QLabel{
        <property name="bottomMargin">
         <number>10</number>
        </property>
+       <item>
+        <widget class="QPushButton" name="delay">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>180</width>
+           <height>125</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Inter</family>
+           <pointsize>100</pointsize>
+          </font>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+	baxkground: black;
+	border: 0px;
+	color: black;
+}
+QPushButton::hover{
+	baxkground: black;
+	border: 0px;
+	color: white;
+}</string>
+         </property>
+         <property name="text">
+          <string>+10</string>
+         </property>
+        </widget>
+       </item>
        <item alignment="Qt::AlignRight">
         <widget class="QLabel" name="clock">
          <property name="sizePolicy">

@@ -53,6 +53,30 @@ class Ui_MainWindow(object):
         self.horizontalLayout.setContentsMargins(10, 10, 10, 10)
         self.horizontalLayout.setSpacing(0)
         self.horizontalLayout.setObjectName("horizontalLayout")
+        self.delay = QtWidgets.QPushButton(self.lista)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Fixed, QtWidgets.QSizePolicy.Policy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.delay.sizePolicy().hasHeightForWidth())
+        self.delay.setSizePolicy(sizePolicy)
+        self.delay.setMinimumSize(QtCore.QSize(180, 125))
+        font = QtGui.QFont()
+        font.setFamily("Inter")
+        font.setPointSize(100)
+        self.delay.setFont(font)
+        self.delay.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
+        self.delay.setStyleSheet("QPushButton{\n"
+"    background: black;\n"
+"    border: 0px;\n"
+"    color: black;\n"
+"}\n"
+"QPushButton::hover{\n"
+"    baxkground: black;\n"
+"    border: 0px;\n"
+"    color: white;\n"
+"}")
+        self.delay.setObjectName("delay")
+        self.horizontalLayout.addWidget(self.delay)
         self.clock = QtWidgets.QLabel(self.lista)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Fixed)
         sizePolicy.setHorizontalStretch(0)
@@ -231,7 +255,8 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "agdx-roadmap.live"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        self.delay.setText(_translate("MainWindow", "+10"))
         self.clock.setText(_translate("MainWindow", "12:22"))
         self.now_start_end.setText(_translate("MainWindow", "13:30 - 13:45"))
         self.now_who.setText(_translate("MainWindow", "@namelessnobody"))
