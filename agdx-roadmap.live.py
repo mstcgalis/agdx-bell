@@ -9,25 +9,25 @@ from logic import *
 ## DATA
 harmonogram_path = "/Users/atelier/Library/Application Support/agdx-roadmap.live/harmonogram.json"
 
-tabulka = """| ŠTVRTOK 2.6. |                      |                                                 |
-| ------------ | -------------------- | ----------------------------------------------- |
-| WHEN         | WHO                  | WHAT                                            |
-| 10:00        | @everyone            | příchod                                         |
-| 10:15        | @Zuzana              | úvod                                            |
-| 10:30        | @danielmstc @hellboi | #agdx-irl (agdx-report)                         |
-| 11:00        | @honza_suchy         | Untitled menu app (agdx-project)                |
-| 11:30        | @everyone            | pauza (10min)                                   |
-| 11:40        | @petr                | KAM (agdx-project)                              |
-| 12:10        | @julie               | podcast (agdx-project)                          |
-| 12:40        | @everyone            | obed (60min)                                    |
-| 13:40        | @v.adela             | myšlenky o textu (agdx-project)                 |
-| 14:10        | @Ondřej              | typo report (agdx-project)                      |
-| 14:40        | @everyone            | pauza (10min)                                   |
-| 14:50        | @JakubS              | web Duholeum - generátor                        |
-| 15:20        | @FlyingMochi         | VR podcast                                      |
-| 15:50        | @everyone            | pauza (10min)                                   |
-| 16:00        | @everyone            | diskuse o sebahodnocení                         |
-| 17:00        | @everyone            | afterka                                         |
+tabulka = """| ŠTVRTOK 2.6. |                      |                                  |
+| ------------ | -------------------- | -------------------------------- |
+| WHEN         | WHO                  | WHAT                             |
+| 10:00        | @everyone            | příchod                          |
+| 10:15        | @Zuzana              | úvod                             |
+| 10:30        | @danielmstc @hellboi | #agdx-irl (agdx-report)          |
+| 11:00        | @honza_suchy         | Untitled menu app (agdx-project) |
+| 11:30        | @everyone            | pauza (10min)                    |
+| 11:40        | @petr                | KAM (agdx-project)               |
+| 12:10        | @julie               | podcast (agdx-project)           |
+| 12:40        | @everyone            | obed (60min)                     |
+| 13:40        | @v.adela             | myšlenky o textu (agdx-project)  |
+| 14:10        | @Ondřej              | typo report (agdx-project)       |
+| 14:40        | @everyone            | pauza (10min)                    |
+| 14:50        | @JakubS              | web Duholeum - generátor         |
+| 15:20        | @FlyingMochi         | VR podcast                       |
+| 15:50        | @everyone            | pauza (10min)                    |
+| 16:00        | @everyone            | diskuse o sebahodnocení          |
+| 17:00        | @everyone            | afterka                          |
 
 """
 if load_harmonogram(harmonogram_path):
@@ -45,7 +45,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.hh_mm_format = "%H:%M"
 
         self.delay.clicked.connect(self.delay_ten)
-        self.minus.clicked.connect(self.delay_minues_five)
+        self.minus.clicked.connect(self.delay_minus_five)
 
         # creating a timer object
         timer = QTimer(self)
@@ -146,7 +146,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         save_harmonogram(self.bell.harmonogram, harmonogram_path)
         self.update_intervals()
 
-    def delay_minues_five(self):
+    def delay_minus_five(self):
         self.bell.harmonogram = subtract_delay(self.bell.harmonogram, 5)
         save_harmonogram(self.bell.harmonogram, harmonogram_path)
         self.update_intervals()
