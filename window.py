@@ -51,7 +51,7 @@ class Ui_MainWindow(object):
         self.lista.setObjectName("lista")
         self.horizontalLayout = QtWidgets.QHBoxLayout(self.lista)
         self.horizontalLayout.setContentsMargins(10, 10, 10, 10)
-        self.horizontalLayout.setSpacing(0)
+        self.horizontalLayout.setSpacing(10)
         self.horizontalLayout.setObjectName("horizontalLayout")
         self.delay = QtWidgets.QPushButton(self.lista)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Fixed, QtWidgets.QSizePolicy.Policy.Fixed)
@@ -77,6 +77,30 @@ class Ui_MainWindow(object):
 "}")
         self.delay.setObjectName("delay")
         self.horizontalLayout.addWidget(self.delay)
+        self.minus = QtWidgets.QPushButton(self.lista)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Fixed, QtWidgets.QSizePolicy.Policy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.minus.sizePolicy().hasHeightForWidth())
+        self.minus.setSizePolicy(sizePolicy)
+        self.minus.setMinimumSize(QtCore.QSize(180, 125))
+        font = QtGui.QFont()
+        font.setFamily("Inter")
+        font.setPointSize(100)
+        self.minus.setFont(font)
+        self.minus.setCursor(QtGui.QCursor(QtCore.Qt.CursorShape.PointingHandCursor))
+        self.minus.setStyleSheet("QPushButton{\n"
+"    baxkground: black;\n"
+"    border: 0px;\n"
+"    color: black;\n"
+"}\n"
+"QPushButton::hover{\n"
+"    baxkground: black;\n"
+"    border: 0px;\n"
+"    color: white;\n"
+"}")
+        self.minus.setObjectName("minus")
+        self.horizontalLayout.addWidget(self.minus)
         self.clock = QtWidgets.QLabel(self.lista)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Fixed)
         sizePolicy.setHorizontalStretch(0)
@@ -91,7 +115,7 @@ class Ui_MainWindow(object):
         self.clock.setLayoutDirection(QtCore.Qt.LayoutDirection.LeftToRight)
         self.clock.setAlignment(QtCore.Qt.AlignmentFlag.AlignRight|QtCore.Qt.AlignmentFlag.AlignTop|QtCore.Qt.AlignmentFlag.AlignTrailing)
         self.clock.setObjectName("clock")
-        self.horizontalLayout.addWidget(self.clock, 0, QtCore.Qt.AlignmentFlag.AlignRight)
+        self.horizontalLayout.addWidget(self.clock)
         self.verticalLayout_3.addWidget(self.lista, 0, QtCore.Qt.AlignmentFlag.AlignRight)
         self.hello = QtWidgets.QFrame(self.centralwidget)
         self.hello.setEnabled(True)
@@ -257,6 +281,7 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.delay.setText(_translate("MainWindow", "+10"))
+        self.minus.setText(_translate("MainWindow", "-5"))
         self.clock.setText(_translate("MainWindow", "12:22"))
         self.now_start_end.setText(_translate("MainWindow", "13:30 - 13:45"))
         self.now_who.setText(_translate("MainWindow", "@namelessnobody"))

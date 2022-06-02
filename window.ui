@@ -98,7 +98,7 @@ QLabel{
       </property>
       <layout class="QHBoxLayout" name="horizontalLayout">
        <property name="spacing">
-        <number>0</number>
+        <number>10</number>
        </property>
        <property name="leftMargin">
         <number>10</number>
@@ -152,7 +152,47 @@ QPushButton::hover{
          </property>
         </widget>
        </item>
-       <item alignment="Qt::AlignRight">
+       <item>
+        <widget class="QPushButton" name="minus">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>180</width>
+           <height>125</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Inter</family>
+           <pointsize>100</pointsize>
+          </font>
+         </property>
+         <property name="cursor">
+          <cursorShape>PointingHandCursor</cursorShape>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+	baxkground: black;
+	border: 0px;
+	color: black;
+}
+QPushButton::hover{
+	baxkground: black;
+	border: 0px;
+	color: white;
+}</string>
+         </property>
+         <property name="text">
+          <string>-5</string>
+         </property>
+        </widget>
+       </item>
+       <item>
         <widget class="QLabel" name="clock">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">

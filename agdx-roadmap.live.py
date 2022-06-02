@@ -45,6 +45,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.hh_mm_format = "%H:%M"
 
         self.delay.clicked.connect(self.delay_ten)
+        self.minus.clicked.connect(self.delay_minues_five)
 
         # creating a timer object
         timer = QTimer(self)
@@ -52,8 +53,6 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         timer.timeout.connect(self.tick)
         # update the timer every second
         timer.start(1000)
-
-        playsound(sound_block_path)
 
         self.pause_messages = [
             "walk around a bit :)",
@@ -147,6 +146,10 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         save_harmonogram(self.bell.harmonogram, harmonogram_path)
         self.update_intervals()
 
+    def delay_minues_five(self):
+        self.bell.harmonogram = subtract_delay(self.bell.harmonogram, 5)
+        save_harmonogram(self.bell.harmonogram, harmonogram_path)
+        self.update_intervals()
 
 # LAUNCH
 app = QtWidgets.QApplication(sys.argv)

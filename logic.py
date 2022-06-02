@@ -168,3 +168,13 @@ def add_delay(harmonogram, int):
             if item.end_time >= current_time:
                 item.end_time += timedelta(minutes=int)
     return harmonogram
+
+def subtract_delay(harmonogram, int):
+    current_time = datetime.now()
+    for item in harmonogram:
+        if item.start_time >= current_time:
+            item.start_time -= timedelta(minutes=int)
+        diff = item.end_time - timedelta(minutes=int)
+        if diff >= current_time:
+                item.end_time -= timedelta(minutes=int)
+    return harmonogram
